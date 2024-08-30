@@ -1,15 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Index</title>
+<style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+    body, h1, p {margin:0; font-family: 'Nanum Gothic';}
+    a {text-decoration:none;}
+    a:hover {text-decoration:underline;}
+    h1 {padding:2%; color:#333; background:#ccc;}
+    .publ-list {padding:1% 2% 2%;}
+    .conversion {display:flex; align-items:center; gap:1.3%; padding:1% 2%; font-size:14px; border-bottom:1px dotted #333;}
+    .conversion .h-total {margin-right:auto; font-weight:bold;}
+    .conversion .h-ing span {color:#ca1b1b;}
+    .conversion .h-complete span {color:#2026d7;}
+    .conversion .data span {font-weight:bold;;}
+    table + table {margin-top:10px;}
+    table th {font-weight:normal;}
+    .publ-list table {width:100%; font-size:13px; text-align:center; border-collapse:collapse; border-spacing:0;}
+    .publ-list table tr:hover {background:rgba(194, 168, 228, 0.2);}
+    .publ-list table th {padding:8px 0; border:solid 1px #ccc; background:#dfdfdf; vertical-align:middle;}
+    .publ-list table td {padding:6px; border:solid 1px #ccc; vertical-align:middle;}
+    .publ-list table td:last-child {padding-left:8px; text-align:left; line-height: 1.3;}
+    .publ-list table tr.title:hover {background: none;}
+    .publ-list table tr.title th {color:#333; font-size:18px; font-weight: 600; text-align:left; border:0; background: none;}
+    .publ-list table tr.title .total {font-size:14px; text-align:right;}
+    .lastmdate {color: #1155CC;}
+    .stand_by {color:#333;}
+    table .ing {color:#ca1b1b;}
+    table .end {color:#2026d7;}
+    table .none {color:#ddd;text-decoration: line-through;}
+    .publ-list table td.link,
+    .publ-list table td.tit,
+    .publ-list table td.page,
+    .publ-list table td.etc{text-align:left; text-indent:4px;}
+    .indicator {overflow:hidden; position:fixed; top:30%; left:5px; width:0; margin:0; padding-left:30px; color:#fff; border-radius: 8px; background: rgba(0, 0, 0, .8);}
+    .indicator li {margin: 20px 0; font-weight:bold; white-space: nowrap;}
+    .indicator a {color: #fff !important;}
+    .indicator:hover {width:auto; padding-right: 30px;}
+</style>
 </head>
 <body>
-    <H1>QA Auto Index</H1>
-    <ul>
-        <li><a href="dashboard01.html">Dashboard</a></li>
-        <li><a href="">Info Page</a></li>
-    </ul>
+<!-- eniter wrap -->
+<div class="guide-wrap">
+	<div class="header">
+		<h1>QA Auto Index</h1>
+		<div class="conversion">
+			<p class="h-total">전체: <span class="data"></span></p>
+			<p class="h-wait">대기: <span class="data"></span></p>
+			<p class="h-ing">진행: <span class="data"></span></p>
+			<p class="h-complete">완료: <span class="data"></span></p>
+		</div>
+	</div>
+	<div class="publ-list">	
+		<!-- GUIDE -->
+		<table class="codinglist" id="guide">
+			<colgroup>
+				<col width="2%" />
+				<col width="*" />
+				<col width="5%" />
+				<col width="10%" />
+				<col width="20%" />
+				<col width="5%" />
+				<col width="5%" />
+				<col width="5%" />
+				<col width="20%" />
+			</colgroup>
+			<thead>
+				<tr class="title"><th colspan="7">GUIDE</th></tr>
+				<tr><th>no.</th><th>메뉴명</th><th>속성</th><th>pageID</th><th>url</th><th>진행상황</th><th>담당자</th><th>완료날짜</th><th>비고</th></tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="no"></td>
+					<td class="tit">common</td>
+					<td>Page</td>
+					<td class="page"></td>
+					<td class="link"><a href="#" target="_blank"></a></td>
+					<td class="state"></td>
+					<td>김다해</td>
+					<td class="date"></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+			
+		<!-- common -->
+		<table class="codinglist" id="common">
+			<colgroup>
+				<col width="2%" />
+				<col width="*" />
+				<col width="5%" />
+				<col width="10%" />
+				<col width="20%" />
+				<col width="5%" />
+				<col width="5%" />
+				<col width="5%" />
+				<col width="20%" />
+			</colgroup>
+			<thead>
+				<tr class="title"><th colspan="7">Common</th></tr>
+				<tr><th>no.</th><th>메뉴명</th><th>속성</th><th>pageID</th><th>url</th><th>진행상황</th><th>담당자</th><th>완료날짜</th><th>비고</th></tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="no"></td>
+					<td class="tit">Layout</td>
+					<td>Page</td>
+					<td class="page"></td>
+					<td class="link"><a href="#" target="_blank"></a></td>
+					<td class="state"></td>
+					<td></td>
+					<td class="date"></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<!-- main -->
+		<table class="codinglist" id="main">
+			<colgroup>
+				<col width="2%" />
+				<col width="*" />
+				<col width="5%" />
+				<col width="10%" />
+				<col width="20%" />
+				<col width="5%" />
+				<col width="5%" />
+				<col width="5%" />
+				<col width="20%" />
+			</colgroup>
+			<thead>
+				<tr class="title"><th colspan="7">Main page</th></tr>
+				<tr><th>no.</th><th>메뉴명</th><th>속성</th><th>pageID</th><th>url</th><th>진행상황</th><th>담당자</th><th>완료날짜</th><th>비고</th></tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="no"></td>
+					<td class="tit">Dashboard</td>
+					<td>Page</td>
+					<td class="page">Main</td>
+					<td class="link"><a href="dashboard01.html" target="_blank"></a></td>
+					<td class="state"></td>
+					<td></td>
+					<td class="date"></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	
+		<!-- sub -->
+		<table class="codinglist" id="sub">
+			<colgroup>
+				<col width="2%" />
+				<col width="*" />
+				<col width="5%" />
+				<col width="10%" />
+				<col width="20%" />
+				<col width="5%" />
+				<col width="5%" />
+				<col width="5%" />
+				<col width="20%" />
+			</colgroup>
+			<thead>
+				<tr class="title"><th colspan="7">Sub page</th></tr>
+				<tr><th>no.</th><th>메뉴명</th><th>속성</th><th>pageID</th><th>url</th><th>진행상황</th><th>담당자</th><th>완료날짜</th><th>비고</th></tr>
+			</thead>
+			<tbody>
+
+				<tr>
+					<td class="no"></td>
+					<td class="tit">휴민트</td>
+					<td>Page</td>
+					<td class="page">sub</td>
+					<td class="link"><a href="#" target="_blank"></a></td>
+					<td class="state"></td>
+					<td></td>
+					<td class="date"></td>
+					<td></td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+function chkList(){
+	$(".codinglist tr").each(function() {
+		var index = $(".codinglist tr").not('.title').index(this);
+		$(this).children(".codinglist td.no").text(index);
+	});
+
+	var total = $(".no").length;
+	var complete= 0;
+
+	$(".codinglist td a").each(function() {
+		if($(this).attr('href') != '#'){
+			$(this).parent().parent().find('.state').text('작업중').addClass('ing').removeClass('wait');
+			var alink = $(this).attr('href');
+			$(this).text(alink);
+		} else
+		if ($(this).attr('href') == '#') {
+			$(this).parent().parent().find('.state').text('대기중').addClass('wait');
+		}
+		if ($(this).attr('href') == '#none') {
+			$(this).parent().parent().find('.state').text('비대상').removeClass('ing').addClass('none');
+			$(this).text("");
+		}
+	});
+	$(".codinglist td.date").each(function() {
+		if($(this).text().length > 0) {
+			complete++;
+			$(this).parent().find('.state').text('완료');
+			$(this).parent().find('.state').addClass('end').removeClass('ing').removeClass('wait');
+		}
+	});
+
+	if($('.state').hasClass('ing')){
+		$(this).text('진행중')
+	}
+
+	$(".codinglist td.state").each(function() {
+		if($(this).hasClass('end') === true) {
+			$(this).parent().css('background', 'rgba(32, 38, 215, .08)');
+		}
+	});
+
+	var ing = $('.ing').length;
+	var wait = Math.floor(total - ing - complete);
+
+	$('.h-total .data').html('<span>' + total + '</span>건');
+	$('.h-complete .data').html('<span>' + complete + '</span>건(' + Math.round((complete/total)*100) + '%)');
+	$('.h-ing .data').html('<span>' + ing + '</span>건(' + Math.round((ing/total)*100) + '%)');
+	$('.h-wait .data').html('<span>' + wait + '</span>건(' + Math.round((wait/total)*100) + '%)');
+}
+chkList();
+</script>
 </body>
 </html>

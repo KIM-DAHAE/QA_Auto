@@ -1,0 +1,48 @@
+.icon {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    vertical-align: middle;
+    overflow: hidden;
+    color: rgba(0,0,0,0);
+    text-indent: -999px;
+    white-space: nowrap
+}
+
+.icon {
+    &__menu1 {
+        width: 14px;
+        height: 14px;
+        background-image: url(../images/icons/icon__menu1.png);
+    }
+    &__menu2 {
+        width: 14px;
+        height: 14px;
+        background-image: url(../images/icons/icon__menu2.png);
+    }
+    &__menu3 {
+        width: 14px;
+        height: 14px;
+        background-image: url(../images/icons/icon__menu3.png);
+    }
+    &__menu4 {
+        width: 14px;
+        height: 14px;
+        background-image: url(../images/icons/icon__menu4.png);
+    }
+    &__menu5 {
+        width: 14px;
+        height: 14px;
+        background-image: url(../images/icons/icon__menu5.png);
+    }
+    &__menu6 {
+        width: 14px;
+        height: 14px;
+        background-image: url(../images/icons/icon__menu6.png);
+    }
+    &__menu7 {
+        width: 14px;
+        height: 14px;
+        background-image: url(../images/icons/icon__menu7.png);
+    }
+}

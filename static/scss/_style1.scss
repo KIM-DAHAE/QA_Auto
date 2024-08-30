@@ -1,0 +1,96 @@
+// Coco
+
+html {
+    font-size: 16px;
+}
+
+body {
+    width: 100%;
+    color: $black;
+    font-family: "Inter",sans-serif !important;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.wrapper {
+    height: 100%;
+    background-color: $gray100;
+}
+
+.container {
+    display: flex;
+}
+
+// layout_gnb
+
+.gnb {
+    position: fixed;
+    width: 88px;
+    height: 100%;
+    background-color: $primary2;
+    border-radius: 0 12px 12px 0;
+    color: $primary;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+
+    &__menu {
+        padding-top: 20px;
+    }
+
+    &__item {
+        display: block;
+        padding: 18px 0;
+        line-height: 0;
+    }
+
+    &__list {
+        padding-top: 20px;
+
+        li {
+            position: relative;
+            height: 100%;
+
+            &.is-active {
+                &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 0;
+                    width: 3px;
+                    height: 34px;
+                    background-color: $primary;
+                    border-radius: 1px;
+                }
+            }
+
+        }
+    }
+
+    .logo {
+
+        span {
+            display: block;
+            font-size: 18px;
+        }
+    }
+}
+
+// layout_section
+.section {
+    &-wrap {
+        padding: 40px 40px 40px 128px;
+        padding-left: 128px;
+    }
+}
+
+// layout_head
+.head {
+    &__title {
+        padding-bottom: 22px;
+        font-size: 24px;
+        line-height: 29.05px;
+    }
+}
