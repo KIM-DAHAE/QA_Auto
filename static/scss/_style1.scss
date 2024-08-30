@@ -10,10 +10,12 @@ body {
     font-family: "Inter",sans-serif !important;
     font-weight: 500;
     line-height: 1;
+
 }
 
 .wrapper {
-    height: 100%;
+    width: 100%;
+    min-height: 100%;
     background-color: $gray100;
 }
 
