@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="static/scss/common.css">
     <link rel="stylesheet" href="static/scss/style.css">
     <script type="text/javascript" src="static/js/ui.common.js"></script>
+    <script type="text/javascript" src="node_modules/chart.js/dist/chart.umd.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -33,10 +34,78 @@
                             <p class="head__desc ">Monitoring S.com Home / Offer page based on GBC Contents Guideline</p>
                         </div>
                     </section>
-                    <section></section>
+                    <section class="sec01">
+                        <div class="sum__total">
+                            <div class="desc__total">
+                                <div class="desc__week">
+                                    <i class="icon icon__q"></i>
+                                    <select name="" id="" class="select week">
+                                        <option value="">W29</option>
+                                    </select>
+                                </div>
+                                <strong class="sum__total__title">QA Site : <span>92</span></strong>
+                                <p class="desc">Total QA Cycle : <span>500k</span></p>
+                                <p class="desc">Total QA Pass : <span>400k</span></p>
+                            </div>
+                            <div class="qa-scope">
+                                <strong class="qa-scope__title">QA Scope</strong>
+                                <ul>
+                                    <li>Image </li>
+                                    <li>Background</li>
+                                    <li>Title</li>
+                                    <li>Description</li>
+                                    <li>Badge</li>
+                                    <li>Grid Sytle</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sum__group">
+                            <div class="item"></div>
+                            <div class="item"></div>
+                            <div class="item"></div>
+                        </div>
+                        <div class="error-graph">
+                            <canvas id="doughnutChartCanvas"></canvas>
+                        </div>
+                    </section>
                 </main>
             </div>
         </div>
     </div>
 </body>
+<script>
+    const canvas = document.getElementById("doughnutChartCanvas");
+    const data = {
+    labels: ["Red", "Blue", "Yellow"],
+    datasets: [
+        {
+        label: "My First Dataset",
+        data: [36, 12, 52],
+        backgroundColor: [
+            "rgba(169, 223, 216, 1)",
+            "rgba(85, 229, 211, 1)",
+            "rgba(254, 185, 90, 1)",
+        ],
+        hoverOffset: 4,
+        borderWidth: 0,
+        borderRadius: 50,
+        spacing: 5,
+        },
+    ],
+    };
+    const options = {
+        cutout: "75%",
+        rotation: -20 * Math.PI,
+        legend: [
+           { 
+                position: 'right',
+            }
+        ],
+    };
+    new Chart(canvas, {
+        type: "doughnut",
+        data,
+        options,
+    });
+</script>
 </html>

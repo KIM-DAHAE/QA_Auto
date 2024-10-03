@@ -96,3 +96,21 @@ body {
         line-height: 29.05px;
     }
 }
+
+// sec
+.sec {
+    &01 {
+        display: flex;
+        height: 200px;
+    }
+}
+
+.error {
+    &-graph {
+        width: 400px;
+        canvas {
+            width: 400px;
+            height: 200px;
+        }
+    }
+}
