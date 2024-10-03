@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>OX 퀴즈</title>
+    <style type="text/css">
+        body {
+            background-color: #fce3c2;
+        }
+        .number {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .label {
+            font-size: 150%;
+            font-weight: bold;
+        }
+        .problem {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .problem_img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+        }
+        .answer {
+            text-align: center;
+        }
+        .button.o {
+            width: 100px;
+            color: #fff;
+            background: #f88379;
+            border: 2px solid #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .button.o:hover {
+            background: #e63a00;
+            color: #fff;
+            cursor: pointer;
+        }
+        .button.o:active {
+            background: #e63a00;
+            color: #fff;
+        }
+        .button.o:focus {
+            background: #e63a00;
+            outline: 0;
+        }
+        .button.x {
+            width: 100px;
+            color: #fff;
+            background: #f88379;
+            border: 2px solid #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .button.x:hover {
+            background: #e63a00;
+            color: #fff;
+            cursor: pointer;
+        }
+        .button.x:active {
+            background: #e63a00;
+            color: #fff;
+        }
+        .button.x:focus {
+            background: #e63a00;
+            outline: 0;
+        }
+        .button.res {
+            width: 150px;
+            color: #fff;
+            background: #79aff8;
+            padding: 10px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .button.res:hover {
+            background: #3084f4;
+            color: #fff;
+            cursor: pointer;
+        }
+        .button.res:active {
+            background: #3084f4;
+            color: #fff;
+        }
+        .button.res:focus {
+            background: #3084f4;
+            outline: 0;
+        }
+        .button.restart {
+            width: 150px;
+            color: #fff;
+            background: #f88379;
+            border: 2px solid #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        .button.restart:hover {
+            background: #e63a00;
+            color: #fff;
+            cursor: pointer;
+        }
+        .button.restart:active {
+            background: #e63a00;
+            color: #fff;
+        }
+        .button.restart:focus {
+            background: #e63a00;
+            outline: 0;
+        }
+        .admin {
+            width: 320px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 번호 영역 -->
+    <div class="number" id="number_id"></div>
+    <!-- 문제 영역 -->
+    <div class="problem" id="problem_id"></div>
+    <!-- 보기 영역 -->
+    <div class="answer" id="answer_id"></div>
+    <!--광고 영역 -->
+    <div class="admin"></div>
+    <!-- 기능 영역 -->
+    <script>
+        var number_id, problem_id, answer_id;
+        var problem_arr = ['q1.png', 'q2.png', 'q3.png', 'q4.png', 'q5.png', 'qres.png'];
+        var answer_arr = ['O', 'X', 'X', 'O', 'O'];
+        var selectAnswer, score;
+        var imgNum, startNum, endNum;
+
+        function init(){
+            number_id = document.getElementById("number_id");
+            problem_id = document.getElementById("problem_id");
+            answer_id = document.getElementById("answer_id");
+
+            startNum = 0;
+            endNum = 5;
+            score = 0;
+
+            setProblem();
+        }
+        init();
+
+        function setProblem(){
+            problem_id.innerHTML = "<img src='./img/" + problem_arr[startNum] + "' class='problem_img'>";
+            if(startNum == endNum){
+                number_id.innerHTML = "<span class='label'><결과보기></span>";
+                answer_id.innerHTML = "<button type='button' class='button res' onclick='btnResFunc();'>결과보기</button><button type='button' class='button restart' onclick='history.go(0);'>다시하기</button>";
+            } else {
+                number_id.innerHTML = "<span class='label'><" + parseInt(startNum + 1) + "></span>";
+                answer_id.innerHTML = "<button type='button' class='button o' onclick='btnOFunc();'>O</button><button type='button' class='button x' onclick='btnXFunc();'>X</button>";
+            }
+        }
+
+        function btnOFunc(){
+            selectAnswer = "O";
+            if(answer_arr[startNum] == selectAnswer){
+                score++;
+            }
+            startNum++;
+            setProblem();
+        }
+
+        function btnXFunc(){
+            selectAnswer = "X";
+            if(answer_arr[startNum] == selectAnswer){
+                score++;
+            }
+            startNum++;
+            setProblem();
+        }
+
+        function btnResFunc(){
+            Swal.fire({
+                title: '',
+                text: '',
+                html: "<b>당신의 점수는 " + score + "점 입니다.</b>",
+                icon: 'success',
+                confirmButtonColor: '#d33',
+                confirmButtonText: '닫기',
+                allowOutsideClick: false
+            });
+        }
+    </script>
+</body>
+</html>
