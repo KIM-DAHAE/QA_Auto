@@ -250,11 +250,14 @@ body, html {
             p {
                 padding: 8px;
                 font-size: 26px;
-                &:first-child {
+                &:first-of-type {
                     padding-right: 200px;
                 }
-                &:nth-child(2) {
+                &:last-of-type {
                     padding-left: 200px;
+                    .text--orange {
+                        padding-left: 20px;
+                    }
                 }
             }
 
@@ -279,8 +282,27 @@ body, html {
     }
 
     .question {
+        padding-bottom: 20px;
         span {
             display: block;
+        }
+    }
+
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .btn__wrap {
+        padding-top: 104px;
+        text-align: center;
+        .btn {
+            width: 157px;
+            padding: 15px 0;
+            background-color: #454545;
+            line-height: 1;
+            color: #fff;
+            border-radius: 12px;
         }
     }
 }

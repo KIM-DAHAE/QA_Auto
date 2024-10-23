@@ -220,11 +220,14 @@ body, html {
   padding: 8px;
   font-size: 26px;
 }
-.quiz__wrap .title p:first-child {
+.quiz__wrap .title p:first-of-type {
   padding-right: 200px;
 }
-.quiz__wrap .title p:nth-child(2) {
+.quiz__wrap .title p:last-of-type {
   padding-left: 200px;
+}
+.quiz__wrap .title p:last-of-type .text--orange {
+  padding-left: 20px;
 }
 .quiz__wrap .title .timer {
   font-size: 38px;
@@ -243,6 +246,25 @@ body, html {
   background-color: #fff;
   border: 2px solid #87888c;
 }
+.quiz .question {
+  padding-bottom: 20px;
+}
 .quiz .question span {
   display: block;
+}
+.quiz img {
+  display: block;
+  margin: 0 auto;
+}
+.quiz .btn__wrap {
+  padding-top: 104px;
+  text-align: center;
+}
+.quiz .btn__wrap .btn {
+  width: 157px;
+  padding: 15px 0;
+  background-color: #454545;
+  line-height: 1;
+  color: #fff;
+  border-radius: 12px;
 }/*# sourceMappingURL=quiz.css.map */

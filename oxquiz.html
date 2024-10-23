@@ -20,7 +20,7 @@
 <body>
     <header class="header">
         <h1>
-            <a href="#">
+            <a href="oxquiz_intro.html">
                 <img src="static/images/quiz/logo.png" alt="ptkorea">
             </a>
         </h1>
@@ -38,6 +38,11 @@
                 </div>
                 <div class="quiz">
                     <p class="question"><span>Q.</span>이미지내 노출될 수 있는 제품은 오직 1개 이다.</p>
+                    <img src="static/images/quiz/img_guide1.png" alt="guide">
+                    <div class="btn__wrap">
+                        <button type="button" class="btn btn__o">O</button>
+                        <button type="button" class="btn btn__x">X</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,7 +50,9 @@
 </body>
 <script>
     $(document).ready(function(){
-        
+        setTimeout(function(){
+            $('.quiz__wrap').find('.title p').eq(1).html(`SYSTEM <span class="text--orange">“Done , Clear!!”</span>`)
+        }, 30)
     })
 </script>
 </html>
