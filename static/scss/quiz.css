@@ -52,6 +52,10 @@ body, html {
   font-size: 32px;
   font-weight: 700;
 }
+.btn__wrap {
+  font-family: "Lacquer", system-ui;
+  font-weight: 400;
+}
 
 .header {
   display: flex;
@@ -76,15 +80,11 @@ body, html {
   font-weight: 800;
 }
 
-.intro {
-  padding-top: 140px;
-  text-align: center;
-}
-.intro__wrap .title {
+.contents .title {
   display: flex;
   align-items: center;
 }
-.intro__wrap .title p {
+.contents .title p {
   display: inline-flex;
   align-items: center;
   width: 100%;
@@ -92,12 +92,17 @@ body, html {
   background-color: #454545;
   color: #fff;
 }
-.intro__wrap .title p:first-child {
+.contents .title p:first-child {
   justify-content: flex-end;
   padding-right: 100px;
 }
-.intro__wrap .title p:last-child {
+.contents .title p:last-child {
   padding-left: 100px;
+}
+
+.intro {
+  padding-top: 140px;
+  text-align: center;
 }
 .intro .text--sm {
   font-weight: 500;
@@ -140,12 +145,17 @@ body, html {
   display: none;
 }
 .content__guide .title {
+  display: block;
   padding: 24px 50px;
   margin-bottom: 56px;
   background-color: #454545;
   color: #fff;
   font-size: 26px;
   font-weight: 500;
+}
+.content__guide .title p {
+  display: block;
+  padding: 0 !important;
 }
 .content__guide .title .text--orange {
   font-weight: 800;
@@ -196,4 +206,43 @@ body, html {
   height: 30px;
   background: url(../images/quiz/ico_arrow.png) 100% 0;
   animation: arrow 1.5s infinite;
+}
+
+.quiz {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.quiz__wrap .title {
+  position: relative;
+  margin-bottom: 143px;
+}
+.quiz__wrap .title p {
+  padding: 8px;
+  font-size: 26px;
+}
+.quiz__wrap .title p:first-child {
+  padding-right: 200px;
+}
+.quiz__wrap .title p:nth-child(2) {
+  padding-left: 200px;
+}
+.quiz__wrap .title .timer {
+  font-size: 38px;
+  text-align: center;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+}
+.quiz__wrap .title .timer__wrap {
+  position: absolute;
+  left: calc((100% - 168px) / 2);
+  bottom: -90px;
+  width: 168px;
+  height: 168px;
+  line-height: 168px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #87888c;
+}
+.quiz .question span {
+  display: block;
 }/*# sourceMappingURL=quiz.css.map */
