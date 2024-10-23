@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link href="https://cdn.jsdelivr.net/npm/noto-sans-kr@0.1.1/styles.min.css" rel="stylesheet">
+    <title>OX 퀴즈</title>
+    <style type="text/css">
+        html, body {height: 100%; text-size-adjust:none; -webkit-text-size-adjust: none; -moz-text-size-adjust: none; -ms-text-size-adjust: none;}
+        ::before,::after,
+        html, body, div, ul, ol, dl, li, dt, dd, p, h1, h2, h3, h4, h5, h6, table, thead, tbody, tr, th, td, caption, address, article, aside,
+        canvas, details, figure, figcaption, main, footer, header, menu, nav, section,
+        button, select, textarea, input, form, fieldset, legend, label, a, span, strong, em, address, pre, code, dfn, small, i, b {margin:0; padding:0; border:0; list-style:none; font-style:normal; font-size:inherit; font-weight:inherit; font-family:inherit; color:inherit; box-sizing:inherit; -webkit-box-sizing:inherit; -moz-box-sizing:inherit; -o-box-sizing:inherit; -webkit-print-color-adjust:exact;font-family: "Noto Sans Korean", sans-serif;}
+        body {
+            /* background-color: #fce3c2; */
+        }
+        .number {
+            width: 100%;
+            padding: 30px 0;
+            text-align: center;
+        }
+        .label {
+            display: inline-block;
+            width: 500px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: left;
+        }
+        .problem {
+            text-align: center;
+        }
+        .problem_img {
+            width: 500px;
+            height: 500px;
+            object-fit: cover;
+        }
+        .answer {
+            text-align: center;
+        }
+        .button.o {
+            width: 100px;
+            color: #fff;
+            background: #f88379;
+            border: 2px solid #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .button.o:hover {
+            background: #e63a00;
+            color: #fff;
+            cursor: pointer;
+        }
+        .button.o:active {
+            background: #e63a00;
+            color: #fff;
+        }
+        .button.o:focus {
+            background: #e63a00;
+            outline: 0;
+        }
+        .button.x {
+            width: 100px;
+            color: #fff;
+            background: #f88379;
+            border: 2px solid #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .button.x:hover {
+            background: #e63a00;
+            color: #fff;
+            cursor: pointer;
+        }
+        .button.x:active {
+            background: #e63a00;
+            color: #fff;
+        }
+        .button.x:focus {
+            background: #e63a00;
+            outline: 0;
+        }
+        .button.res {
+            width: 150px;
+            color: #fff;
+            background: #79aff8;
+            padding: 10px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .button.res:hover {
+            background: #3084f4;
+            color: #fff;
+            cursor: pointer;
+        }
+        .button.res:active {
+            background: #3084f4;
+            color: #fff;
+        }
+        .button.res:focus {
+            background: #3084f4;
+            outline: 0;
+        }
+        .button.restart {
+            width: 150px;
+            color: #fff;
+            background: #f88379;
+            border: 2px solid #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        .button.restart:hover {
+            background: #e63a00;
+            color: #fff;
+            cursor: pointer;
+        }
+        .button.restart:active {
+            background: #e63a00;
+            color: #fff;
+        }
+        .button.restart:focus {
+            background: #e63a00;
+            outline: 0;
+        }
+        .admin {
+            width: 320px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        /* 예시 css */
+        .logo {
+            >img {
+                display: block;
+                width: 30%;
+                height: auto;
+                margin-bottom: 20px;
+            }
+        }
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 130px;
+            margin-bottom: 50px;
+            font-size: 56px;
+            background-color: lightgray;
+        }
+
+        .vs {
+            padding: 0 20px;
+            font-size: 68px;
+            font-weight: 800;
+            }
+        .check {
+            text-align: center;
+            padding-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo">
+            <img src="./img/logo.jpg" alt="PTKOREA">
+        </h1>
+    </header>
+    <div class="title">
+        <p>Human</p>
+        <p class="vs">VS</p>
+        <p>QA Tool</p>
+    </div>
+    <!-- 시계 -->
+<div id="timer">01:00:00</div>
+<!-- 문제 영역 -->
+<div class="problem" id="problem_id"></div>
+<!-- 번호 영역 -->
+<div class="number" id="number_id"></div>
+<!-- 체크리스트 영역 -->
+<div class="check" id="check_id"></div>
+<!-- 보기 영역 -->
+<div class="answer" id="answer_id"></div>
+<!-- 광고 영역 -->
+<div class="admin">
+    <button id="startButton">타이머 시작</button>
+</div>
+
+<script>
+    // 전역 변수 설정
+    const problemArr = ['q1.png', 'q2.png', 'q3.png', 'q4.png', 'q5.png', 'qres.png'];
+    const checkArr = ['배경색상은 #f4f4f4여야 한다', '어쩌고', '저쩌고', '이러쿵', '저러쿵', ''];
+    const answerArr = ['O', 'X', 'X', 'O', 'O'];
+
+    let currentProblemIndex = 0;
+    let score = 0;
+    let timerInterval;
+    let remainingTime = 60000; // 1분 (60000ms)
+
+    // DOM 요소 가져오기
+    const timerDisplay = document.getElementById("timer");
+    const problemDisplay = document.getElementById("problem_id");
+    const numberDisplay = document.getElementById("number_id");
+    const checkDisplay = document.getElementById("check_id");
+    const answerDisplay = document.getElementById("answer_id");
+    const startButton = document.getElementById("startButton");
+
+    // 초기화 함수
+    function init() {
+        updateTimerDisplay(remainingTime);
+        displayProblem();
+    }
+    init();
+
+    // 문제 표시 함수
+    function displayProblem() {
+        checkDisplay.innerHTML = `<span class='label'>${checkArr[currentProblemIndex]}</span>`;
+        
+        if (currentProblemIndex < problemArr.length) {
+            problemDisplay.innerHTML = `<img src='./img/${problemArr[currentProblemIndex]}' class='problem_img'>`;
+            numberDisplay.innerHTML = `<span class='label'>Checklist ${currentProblemIndex + 1}</span>`;
+            answerDisplay.innerHTML = `
+                <button type='button' class='button o' onclick='handleAnswer("O")'>O</button>
+                <button type='button' class='button x' onclick='handleAnswer("X")'>X</button>`;
+        } else {
+            showResult();
+        }
+    }
+
+    // 답변 처리 함수
+    function handleAnswer(selectedAnswer) {
+        if (answerArr[currentProblemIndex] === selectedAnswer) {
+            score++;
+        }
+        currentProblemIndex++;
+        displayProblem();
+
+        if (currentProblemIndex >= problemArr.length) {
+            stopTimer(); // 타이머 정지
+        }
+    }
+
+    // 결과 표시 함수
+    function showResult() {
+        numberDisplay.innerHTML = "<span class='label'><결과보기></span>";
+        answerDisplay.innerHTML = `
+            <button type='button' class='button res' onclick='displayScore();'>결과보기</button>
+            <button type='button' class='button restart' onclick='history.go(0);'>다시하기</button>`;
+    }
+
+    // 점수 표시 함수
+    function displayScore() {
+        stopTimer();
+        Swal.fire({
+            title: '',
+            text: '',
+            html: `<b>당신의 점수는 ${score}점 입니다.</b>`,
+            icon: 'success',
+            confirmButtonColor: '#d33',
+            confirmButtonText: '닫기',
+            allowOutsideClick: false
+        });
+    }
+
+    // 타이머 업데이트 함수
+    function updateTimerDisplay(time) {
+        const minutes = String(Math.floor((time / 1000 / 60) % 60)).padStart(2, '0');
+        const seconds = String(Math.floor((time / 1000) % 60)).padStart(2, '0');
+        const milliseconds = String(Math.floor((time % 1000) / 10)).padStart(2, '0');
+        
+        timerDisplay.textContent = `${minutes}:${seconds}:${milliseconds}`;
+    }
+
+    // 타이머 시작 함수
+    function startTimer() {
+        startButton.disabled = true;
+        timerInterval = setInterval(() => {
+            remainingTime -= 10; // 10ms마다 업데이트
+            updateTimerDisplay(remainingTime);
+
+            if (remainingTime <= 0) {
+                clearInterval(timerInterval);
+                alert("타이머가 종료되었습니다!");
+                startButton.disabled = false; // 버튼 다시 활성화
+            }
+        }, 10);
+    }
+
+    // 타이머 정지 함수
+    function stopTimer() {
+        clearInterval(timerInterval);
+        startButton.disabled = false; // 버튼 다시 활성화
+    }
+
+    // 이벤트 리스너 등록
+    startButton.addEventListener('click', startTimer);
+
+</script>
+</body>
+</html>

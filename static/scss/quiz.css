@@ -1,0 +1,199 @@
+body, html {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+@keyframes blink {
+  0% {
+    color: #fff;
+  }
+  50% {
+    color: #ff6331;
+  }
+  100% {
+    color: #fff;
+  }
+}
+@keyframes arrow {
+  0% {
+    right: 0;
+  }
+  50% {
+    right: calc(100% - 53px);
+  }
+  100% {
+    right: 0;
+  }
+}
+.text--sm {
+  font-size: 16px;
+}
+.text--red {
+  color: #f60909;
+}
+.text--orange {
+  color: #feb95a;
+}
+
+.btn__start {
+  width: 422px;
+  height: 82px;
+  background-color: #454545;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+}
+.btn__start span {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 31px 50px 32px;
+}
+.header a {
+  display: block;
+}
+.header a img {
+  display: block;
+}
+.header p {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  font-weight: 300;
+}
+.header p strong {
+  font-size: 48px;
+  font-weight: 800;
+}
+
+.intro {
+  padding-top: 140px;
+  text-align: center;
+}
+.intro__wrap .title {
+  display: flex;
+  align-items: center;
+}
+.intro__wrap .title p {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  padding: 24px 0;
+  background-color: #454545;
+  color: #fff;
+}
+.intro__wrap .title p:first-child {
+  justify-content: flex-end;
+  padding-right: 100px;
+}
+.intro__wrap .title p:last-child {
+  padding-left: 100px;
+}
+.intro .text--sm {
+  font-weight: 500;
+  line-height: 19.36px;
+}
+.intro .text--sm strong {
+  display: block;
+  font-weight: 700;
+}
+.intro .text--sm + p {
+  padding-top: 30px;
+  line-height: 52px;
+}
+.intro .btn__start {
+  margin-top: 100px;
+}
+.intro .btn__start span {
+  animation: blink 1.5s infinite;
+}
+
+.game--rule {
+  display: none;
+  padding-top: 140px;
+  text-align: center;
+  line-height: 52px;
+}
+.game--rule h2,
+.game--rule strong {
+  color: #454545;
+}
+.game--rule h2 {
+  padding-bottom: 30px;
+}
+.game--rule strong {
+  display: block;
+  padding-top: 30px;
+}
+
+.content__guide {
+  display: none;
+}
+.content__guide .title {
+  padding: 24px 50px;
+  margin-bottom: 56px;
+  background-color: #454545;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 500;
+}
+.content__guide .title .text--orange {
+  font-weight: 800;
+}
+
+.guide__wrap {
+  padding: 0 38px 0 50px;
+}
+.guide__wrap > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 12px;
+  width: 100%;
+}
+.guide__wrap > ul li {
+  flex: 0 0 calc(25% - 12px);
+}
+.guide__wrap > ul li > img {
+  display: block;
+  background-color: #f7f7f7;
+}
+.guide__wrap > ul p {
+  height: 38px;
+  margin-bottom: 7px;
+  max-width: 330px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.guide__wrap .btn__start1 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 330px;
+  width: 100%;
+  height: 100%;
+}
+.guide__wrap .btn__start1 span {
+  position: relative;
+  display: block;
+}
+.guide__wrap .btn__start1 span:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 53px;
+  height: 30px;
+  background: url(../images/quiz/ico_arrow.png) 100% 0;
+  animation: arrow 1.5s infinite;
+}/*# sourceMappingURL=quiz.css.map */
