@@ -1,5 +1,6 @@
+* {font-family:'Malgun Gothic' !important;}
+
 body, html {
-    font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-size: 32px;
     font-weight: 700;
@@ -67,7 +68,6 @@ body {
     }
 
     &__wrap{
-        font-family: "Lacquer", system-ui;
         font-weight: 400;
     }
 
@@ -285,7 +285,6 @@ body {
             .timer{
                 font-size: 38px;
                 text-align: center;
-                font-family: "Rubik", sans-serif;
                 font-optical-sizing: auto;
                 &__wrap{
                     position: absolute;
