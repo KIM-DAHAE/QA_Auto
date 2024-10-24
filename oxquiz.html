@@ -88,14 +88,13 @@
             { question: "제품의 배경 컬러는 규정된 #F4F4F4 컬러 코드만 적용 가능하다.", image: "static/images/quiz/img_question13.png", answer: "O" },
             { question: "제품은 꽉 차게 크게 노출 시킨다.", image: "static/images/quiz/img_question14.png", answer: "X" },
             { question: "여러제품 조합이 가능하며 그리드는 준수하지 않는다.", image: "static/images/quiz/img_question15.png", answer: "X" },
-            // 총 15개 문제 중 일부 예시
         ];
 
         var selectedQuestions = [];
         var totalQuestions = 10;
         var correctAnswers = 0;
         var currentQuestionIndex = 0;
-        var timerDuration = 45;
+        var timerDuration = 45; // 문제 풀이 시간
         var timer;
         var startTime;
         var elapsedTime = 0; // 소요시간 저장
