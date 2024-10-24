@@ -1,9 +1,12 @@
+@font-face {
+  font-family: MalgunGothic;
+  src: url(../fonts/MalgunGothic.eot);
+}
 * {
   font-family: "Malgun Gothic" !important;
 }
 
 body, html {
-  font-optical-sizing: auto;
   font-size: 32px;
   font-weight: 700;
   line-height: 1;
