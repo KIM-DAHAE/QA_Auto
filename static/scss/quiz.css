@@ -356,7 +356,7 @@ body {
   border-radius: 4px;
 }
 .quiz .btn__wrap {
-  padding-top: 104px;
+  padding-top: 40px;
   text-align: center;
 }
 .quiz .btn__wrap .btn {
@@ -367,6 +367,12 @@ body {
   color: #fff;
   border-radius: 12px;
 }
+.quiz .num {
+  font-weight: 300;
+}
+.quiz .num .count {
+  font-weight: 700;
+}
 
 .popup {
   display: none;
@@ -374,7 +380,7 @@ body {
   top: 300px;
   left: 50%;
   width: 600px;
-  height: 493px;
+  min-height: 493px;
   transform: translateX(-50%);
   background: rgba(255, 255, 255, 0.9490196078);
   box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.2);
@@ -404,7 +410,7 @@ body {
   text-decoration: underline;
 }
 .popup.success .result {
-  padding-bottom: 60px;
+  padding-bottom: 30px;
   font-size: 18px;
   font-weight: 400;
 }
@@ -412,6 +418,22 @@ body {
   display: block;
   font-size: 42px;
   font-weight: 700;
+}
+.popup.success .score__wrap {
+  padding-bottom: 60px;
+}
+.popup.success .msg {
+  padding-bottom: 110px;
+}
+
+.tip__wrap {
+  padding-top: 25px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+.tip__wrap span {
+  display: block;
 }
 
 .quiz__wrap .title .timer__wrap .wave_ani__wrap use {
