@@ -36,6 +36,37 @@ body {
     }
 }
 
+@keyframes bgMove {
+    0% {
+      transform: translateY(10%);
+    }
+    100% {
+      transform: translateY(115%);
+    }
+  }
+  @keyframes waveAni {
+    0% {
+     transform: translate3d(-90px, 0, 0);
+    }
+    100% { 
+      transform: translate3d(85px, 0, 0);
+    }
+}
+
+@keyframes waterDropAni {
+    0% {
+      transform: rotateZ(32deg) translate(0, -150%);
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotateZ(32deg) translate(0, 200%);
+      opacity: 0;
+    }
+}
+
 .text {
     &--sm {
         font-size: 16px;
@@ -287,6 +318,7 @@ body {
                 font-size: 38px;
                 text-align: center;
                 font-optical-sizing: auto;
+                transform: translateY(-100%);
                 &__wrap{
                     position: absolute;
                     left: calc((100% - 168px) / 2);
@@ -297,6 +329,58 @@ body {
                     border-radius: 50%;
                     background-color: #fff;
                     border: 2px solid #87888c;
+                    overflow: hidden;
+
+                    .wave_ani__wrap {
+                        width: 168px;
+                        height: 168px;
+                        background-color: #feb95a;
+                        animation: bgMove 47s linear forwards;
+
+                        .waves {
+                            transform: translateY(-300%);
+                        }
+                    }
+                }
+            }
+
+            .water_drop__ani {
+                position: absolute;
+                left: 50%;
+                top: 268%;
+                z-index: -1;
+                display: flex;
+                width: 80px;
+                height: 80px;
+                padding-left: 25px;
+                /* background-color: rgba(0,0,0,0.2); */
+                overflow: hidden;
+                transform: rotateZ(-32deg);
+
+                span {
+                    display: block;
+                    background: url('../images/quiz/img_water.png') no-repeat left top / 100%;
+                    transform: rotateZ(32deg) translate(0, -110%);
+                }
+
+                .water_drop1 {
+                    width: 10px;
+                    height: 16.5px;
+                    animation: waterDropAni 1.5s ease-in-out infinite;
+                }
+
+                .water_drop2 {
+                    width: 15px;
+                    height: 22.5px;
+                    animation: waterDropAni 1.5s ease-in-out 0.5s infinite;
+                    margin-left: 3px;
+                }
+
+                .water_drop3 {
+                    width: 13px;
+                    height: 19.5px;
+                    animation: waterDropAni 1.5s ease-in-out 0.2s infinite;
+                    margin-left:10px;
                 }
             }
         }
@@ -383,4 +467,13 @@ body {
             }
         }
     }
+}
+
+.quiz__wrap .title .timer__wrap .wave_ani__wrap use {
+    width: 168px;
+    height: 168px;
+    animation: waveAni 3s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
