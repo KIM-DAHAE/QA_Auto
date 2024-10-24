@@ -33,7 +33,23 @@
                     <p><span class="text--orange">Y</span>OU</p>
                     <p>SYSTEM</p>
                     <div class="timer__wrap">
+                        <div class="wave_ani__wrap">
+                            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                                <defs>
+                                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                                </defs>
+                                <g class="wave__ani">
+                                    <use xlink:href="#gentle-wave" x="48" y="0" fill="#feb95a" />
+                                </g>
+                            </svg>
+                        </div>
                         <div class="timer"><span>45</span>:<span>00</span></div>
+                    </div>
+                    <div class="water_drop__ani">
+                        <span class="water_drop1"></span>
+                        <span class="water_drop2"></span>
+                        <span class="water_drop3"></span>
                     </div>
                 </div>
                 <div class="quiz">
@@ -188,6 +204,7 @@
         $(".btn__x").click(function() {
             checkAnswer("X");
         });
+
 
         selectRandomQuestions();
         showQuestion(currentQuestionIndex);
