@@ -37,8 +37,9 @@
                     </div>
                 </div>
                 <div class="quiz">
-                    <p class="question"><span>Q.</span>이미지내 노출될 수 있는 제품은 오직 1개 이다.</p>
-                    <img src="static/images/quiz/img_guide1.png" alt="guide">
+                    <p>Q.</p>
+                    <p class="question">여기에 문제가 표시됩니다.</p>
+                    <img src="static/images/quiz/img_question01.png" alt="q1" id="question-image">
                     <div class="btn__wrap">
                         <button type="button" class="btn btn__o">O</button>
                         <button type="button" class="btn btn__x">X</button>
@@ -47,12 +48,152 @@
             </div>
         </div>
     </div>
-</body>
+
+    <div class="popup fail">
+        <div class="popup__inner">
+            <p class="result"><strong>아쉽습니다.</strong>시간이 너무 적긴 했죠. <br> 저희 Tool 과 lv 을 맞추다 보니, <br>그래도 “휴먼” 인데 대단하세요.</p>
+            <p class="msg">아쉬운 결과를 드려 죄송하지만, 그래도 <span>룰은 룰이니깐요,</span><br>좋은 하루되세요.<br>Bye~Bye</p>
+            <a href="oxquiz_intro.html" class="btn__next">→ 다음 게임</a>
+        </div>
+    </div>
+
+    <div class="popup success">
+        <div class="popup__inner">
+            <img src="static/images/quiz/img_success.png" alt="성공">
+            <p class="result"><strong>기록! “<span class="record">21</span>초”</strong>저희 Tool은 0.03초인데</p>
+            <p class="msg">축하드려요.<br>역시 콘텐츠를 보실 줄 아시는<br> <span class="text--blue">귀인</span>을 만나게 되어 기쁩니다.</p>
+            <a href="oxquiz_intro.html" class="btn__next">→ 간식받아 가세요</a>
+        </div>
+    </div>
 <script>
     $(document).ready(function(){
         setTimeout(function(){
             $('.quiz__wrap').find('.title p').eq(1).html(`SYSTEM <span class="text--orange">“Done , Clear!!”</span>`)
         }, 30)
+        
+        // 퀴즈 데이터 배열 (문제, 이미지, 정답)
+        var quizData = [
+            { question: "이미지내 노출될 수 있는 제품은 오직 1개 이다.", image: "static/images/quiz/img_question01.png", answer: "O" },
+            { question: "비슷한 제품군은 2개 이상 노출 가능하다.", image: "static/images/quiz/img_question02.png", answer: "X" },
+            { question: "동일한 시리즈의 제품은 여러개의 제품 노출로 디자인 가능하다.", image: "static/images/quiz/img_question03.png", answer: "O" },
+            { question: "PTK의 로고는 아래와 같이 사용된다.", image: "static/images/quiz/img_question04.png", answer: "O" },
+            { question: "PTK의 로고는 아래와 같이 사용된다.", image: "static/images/quiz/img_question05.png", answer: "X" },
+            { question: "PTK의 로고는 아래와 같이 사용된다.", image: "static/images/quiz/img_question06.png", answer: "X" },
+            { question: "이미지내 노출될 수 있는 제품은 오직 1개 이다.", image: "static/images/quiz/img_question07.png", answer: "O" },
+            { question: "타이틀 영역에는 사용자의 의구심을 유발할 수 있는 줄임말 표현이 가능하다.", image: "static/images/quiz/img_question08.png", answer: "X" },
+            { question: "제품의 배경 컬러는 제품에 맞는 컬러로 배치하여 노출 가능하다.", image: "static/images/quiz/img_question09.png", answer: "X" },
+            { question: "가이드에 준수된 표현일까요?", image: "static/images/quiz/img_question10.png", answer: "X" },
+            { question: "카피는 최대 3Line 까지 노출 가능하다.", image: "static/images/quiz/img_question11.png", answer: "X" },
+            { question: "카피는 1Line 만 적용해도 된다.", image: "static/images/quiz/img_question12.png", answer: "O" },
+            { question: "제품의 배경 컬러는 규정된 #F4F4F4 컬러 코드만 적용 가능하다.", image: "static/images/quiz/img_question13.png", answer: "O" },
+            { question: "제품은 꽉 차게 크게 노출 시킨다.", image: "static/images/quiz/img_question14.png", answer: "X" },
+            { question: "여러제품 조합이 가능하며 그리드는 준수하지 않는다.", image: "static/images/quiz/img_question15.png", answer: "X" },
+            // 총 15개 문제 중 일부 예시
+        ];
+
+        var selectedQuestions = [];
+        var totalQuestions = 10;
+        var correctAnswers = 0;
+        var currentQuestionIndex = 0;
+        var timerDuration = 45;
+        var timer;
+        var startTime;
+        var elapsedTime = 0; // 소요시간 저장
+
+        function selectRandomQuestions() {
+            var quizPool = quizData.slice(); 
+            while (selectedQuestions.length < totalQuestions) {
+                var randomIndex = Math.floor(Math.random() * quizPool.length);
+                selectedQuestions.push(quizPool.splice(randomIndex, 1)[0]);
+            }
+            console.log("Selected Questions: ", selectedQuestions);
+        }
+
+        function showQuestion(index) {
+            if (index < selectedQuestions.length) {
+                var question = selectedQuestions[index];
+                $(".question").text(question.question); 
+                $("#question-image").attr("src", question.image);
+            } else {
+                console.error("Index out of bounds");
+            }
+        }
+
+        function startTimer() {
+            var seconds = timerDuration;
+            var milliseconds = 99;
+            startTime = Date.now();
+
+            timer = setInterval(function() {
+                var currentTime = Date.now();
+                elapsedTime = Math.floor((currentTime - startTime) / 1000);  // 경과 시간 계산
+
+                if (seconds <= 0 && milliseconds <= 0) {
+                    clearInterval(timer);
+                    showFailPopup();  // 시간 초과 시 실패 팝업 표시
+                } else {
+                    if (milliseconds <= 0) {
+                        milliseconds = 99;
+                        seconds--;
+                    }
+                    milliseconds--;
+
+                    $('.timer span:first').text(seconds < 10 ? "0" + seconds : seconds);
+                    $('.timer span:last').text(milliseconds < 10 ? "0" + milliseconds : milliseconds);
+                }
+            }, 10);
+        }
+
+        function stopTimer() {
+            clearInterval(timer);
+            var endTime = Date.now();
+            elapsedTime = Math.floor((endTime - startTime) / 1000);  // 경과 시간 최종 계산
+        }
+
+        function checkAnswer(userAnswer) {
+            if (currentQuestionIndex < selectedQuestions.length) {
+                var correctAnswer = selectedQuestions[currentQuestionIndex].answer;
+                if (userAnswer === correctAnswer) {
+                    correctAnswers++;
+                }
+                currentQuestionIndex++;
+            }
+
+            // 마지막 문제라면 타이머 멈춤
+            if (currentQuestionIndex >= totalQuestions) {
+                stopTimer();  // 타이머 멈춤
+                if (correctAnswers >= totalQuestions) {
+                    showSuccessPopup();  // 성공 팝업 표시
+                } else {
+                    showFailPopup();  // 실패 팝업 표시
+                }
+            } else {
+                // 다음 문제 표시
+                showQuestion(currentQuestionIndex);
+            }
+        }
+
+        function showSuccessPopup() {
+            $(".popup.success").addClass("active");
+            $(".record").text(elapsedTime);  // 소요 시간을 경과 시간으로 표시
+        }
+
+        function showFailPopup() {
+            $(".popup.fail").addClass("active");
+        }
+
+        $(".btn__o").click(function() {
+            checkAnswer("O");
+        });
+
+        $(".btn__x").click(function() {
+            checkAnswer("X");
+        });
+
+        selectRandomQuestions();
+        showQuestion(currentQuestionIndex);
+        startTimer();
     })
 </script>
+</body>
 </html>

@@ -6,6 +6,10 @@ body, html {
   line-height: 1;
 }
 
+body {
+  position: relative;
+}
+
 @keyframes blink {
   0% {
     color: #fff;
@@ -37,6 +41,9 @@ body, html {
 .text--orange {
   color: #feb95a;
 }
+.text--blue {
+  color: #121eff;
+}
 
 .btn__start {
   width: 422px;
@@ -55,6 +62,10 @@ body, html {
 .btn__wrap {
   font-family: "Lacquer", system-ui;
   font-weight: 400;
+}
+.btn__next {
+  display: block;
+  text-align: right;
 }
 
 .header {
@@ -176,6 +187,8 @@ body, html {
 .guide__wrap > ul li > img {
   display: block;
   background-color: #f7f7f7;
+  box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.1019607843);
+  border-radius: 4px;
 }
 .guide__wrap > ul p {
   height: 38px;
@@ -183,6 +196,7 @@ body, html {
   max-width: 330px;
   font-size: 16px;
   font-weight: 700;
+  line-height: 1.2;
 }
 .guide__wrap .btn__start1 {
   display: inline-flex;
@@ -211,6 +225,9 @@ body, html {
 .quiz {
   max-width: 600px;
   margin: 0 auto;
+}
+.quiz__wrap {
+  line-height: 1.2;
 }
 .quiz__wrap .title {
   position: relative;
@@ -247,14 +264,14 @@ body, html {
   border: 2px solid #87888c;
 }
 .quiz .question {
+  height: 97px;
   padding-bottom: 20px;
-}
-.quiz .question span {
-  display: block;
 }
 .quiz img {
   display: block;
   margin: 0 auto;
+  background-color: #f7f7f7;
+  border-radius: 4px;
 }
 .quiz .btn__wrap {
   padding-top: 104px;
@@ -267,4 +284,50 @@ body, html {
   line-height: 1;
   color: #fff;
   border-radius: 12px;
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  top: 300px;
+  left: 50%;
+  width: 600px;
+  height: 493px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.9490196078);
+  box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.2);
+}
+.popup.active {
+  display: block;
+}
+.popup__inner {
+  padding: 50px 40px 30px;
+  text-align: center;
+  line-height: 1.2;
+}
+.popup__inner .msg {
+  padding-bottom: 40px;
+}
+.popup.fail .result {
+  padding-bottom: 30px;
+  font-size: 26px;
+  font-weight: 400;
+}
+.popup.fail .result strong {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+}
+.popup.fail .msg span {
+  text-decoration: underline;
+}
+.popup.success .result {
+  padding-bottom: 60px;
+  font-size: 18px;
+  font-weight: 400;
+}
+.popup.success .result strong {
+  display: block;
+  font-size: 42px;
+  font-weight: 700;
 }/*# sourceMappingURL=quiz.css.map */

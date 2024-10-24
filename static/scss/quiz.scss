@@ -6,6 +6,10 @@ body, html {
     line-height: 1;
 }
 
+body {
+    position: relative;
+}
+
 @keyframes blink {
     0% {
         color: #fff;
@@ -41,6 +45,9 @@ body, html {
     &--orange {
         color: #feb95a;
     }
+    &--blue {
+        color: #121eff;
+    }
 }
 
 .btn {
@@ -62,6 +69,11 @@ body, html {
     &__wrap{
         font-family: "Lacquer", system-ui;
         font-weight: 400;
+    }
+
+    &__next {
+        display: block;
+        text-align: right;
     }
 }
 
@@ -89,6 +101,10 @@ body, html {
             font-weight: 800;
         }
     }
+}
+
+.container {
+    // position: relative;
 }
 
 .contents {
@@ -203,6 +219,8 @@ body, html {
                 >img {
                     display: block;
                     background-color: #f7f7f7;
+                    box-shadow: 4px 4px 12px 0px #0000001A;
+                    border-radius: 4px;
                 }
             }
             p {
@@ -211,6 +229,7 @@ body, html {
                 max-width: 330px;
                 font-size: 16px;
                 font-weight: 700;
+                line-height: 1.2;
             }
         }
 
@@ -244,6 +263,7 @@ body, html {
     max-width: 600px;
     margin: 0 auto;
     &__wrap {
+        line-height: 1.2;
         .title {
             position: relative;
             margin-bottom: 143px;
@@ -282,15 +302,15 @@ body, html {
     }
 
     .question {
+        height: 97px;
         padding-bottom: 20px;
-        span {
-            display: block;
-        }
     }
 
     img {
         display: block;
         margin: 0 auto;
+        background-color: #f7f7f7;
+        border-radius: 4px;
     }
 
     .btn__wrap {
@@ -303,6 +323,63 @@ body, html {
             line-height: 1;
             color: #fff;
             border-radius: 12px;
+        }
+    }
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    width: 600px;
+    height: 493px;
+    transform: translateX(-50%);
+    background: #FFFFFFF2;
+    box-shadow: 4px 4px 12px 0px #00000033;
+
+    &.active {
+        display: block;
+    }
+
+    &__inner {
+        padding: 50px 40px 30px;
+        text-align: center;
+        line-height: 1.2;
+
+        .msg {
+            padding-bottom: 40px;
+        }
+    }
+
+    &.fail {
+        .result {
+            padding-bottom: 30px;
+            font-size: 26px;
+            font-weight: 400;
+            strong {
+                display: block;
+                font-size: 32px;
+                font-weight: 700;
+            }
+        }
+        .msg {
+            span {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &.success {
+        .result {
+            padding-bottom: 60px;
+            font-size: 18px;
+            font-weight: 400;
+            strong {
+                display: block;
+                font-size: 42px;
+                font-weight: 700;
+            }
         }
     }
 }
