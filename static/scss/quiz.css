@@ -329,7 +329,7 @@ body {
 }
 .quiz__wrap .title .system_done.active {
   display: block;
-  animation: systemDone 0.75s cubic-bezier(0.48, 0.48, 0.98, 0.25) forwards;
+  animation: systemDone 0.55s cubic-bezier(0.48, 0.48, 0.98, 0.25) forwards;
 }
 .quiz__wrap .title .timer {
   font-size: 38px;
