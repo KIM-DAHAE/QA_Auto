@@ -270,6 +270,14 @@ body {
   position: relative;
   margin-bottom: 143px;
 }
+.quiz__wrap .title.stop .wave_ani__wrap {
+  animation-play-state: paused !important;
+}
+.quiz__wrap .title.stop .water_drop1,
+.quiz__wrap .title.stop .water_drop2,
+.quiz__wrap .title.stop .water_drop3 {
+  display: none;
+}
 .quiz__wrap .title p {
   padding: 8px;
   font-size: 26px;

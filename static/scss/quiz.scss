@@ -43,13 +43,13 @@ body {
     100% {
       transform: translateY(115%);
     }
-  }
-  @keyframes waveAni {
+}
+@keyframes waveAni {
     0% {
-     transform: translate3d(-90px, 0, 0);
+        transform: translate3d(-90px, 0, 0);
     }
     100% { 
-      transform: translate3d(85px, 0, 0);
+        transform: translate3d(85px, 0, 0);
     }
 }
 
@@ -300,6 +300,16 @@ body {
         .title {
             position: relative;
             margin-bottom: 143px;
+            &.stop {
+                .wave_ani__wrap {
+                    animation-play-state:paused !important;
+                }
+                .water_drop1,
+                .water_drop2,
+                .water_drop3 {
+                    display: none;
+                }
+            }
             p {
                 padding: 8px;
                 font-size: 26px;
