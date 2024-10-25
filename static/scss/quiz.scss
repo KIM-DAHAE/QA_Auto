@@ -78,10 +78,10 @@ body {
 
 @keyframes systemDone {
     0% {
-        transform: translateX(100px) rotateZ(100deg);
+        transform: translateX(-30%) rotateZ(100deg);
     }
     100% {
-        transform: translateX(0px) rotateZ(0deg);
+        transform: translateX(-50%) rotateZ(0deg);
     }
 }
 
@@ -351,13 +351,13 @@ body {
                 }
             }
             .system_done {
-                display: none;
+                // display: none;
                 position:absolute;
-                right: 70px;
+                left: calc(50% + 420px);
                 top: -50px;
                 width: 250px;
                 height: 250px;
-                transform: translateX(100px) rotateZ(100deg);
+                transform: translateX(-50%) rotateZ(100deg);
                 background: url('../images/quiz/img_systemdone.png') no-repeat left top / 100%;
                 
                 &.active {
