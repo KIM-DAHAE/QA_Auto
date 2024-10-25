@@ -23,6 +23,7 @@
                 <div class="title">
                     <p><span class="text--orange">Y</span>OU</p>
                     <p>SYSTEM</p>
+                    <div class="system_done"></div>
                     <div class="timer__wrap">
                         <div class="wave_ani__wrap">
                             <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -36,6 +37,9 @@
                             </svg>
                         </div>
                         <div class="timer"><span>45</span>:<span>00</span></div>
+                        <div class="time_over__ani">
+                            <img src="static/images/quiz/img_timeover.png" alt="timeover">
+                        </div>
                     </div>
                     <div class="water_drop__ani">
                         <span class="water_drop1"></span>
@@ -87,7 +91,7 @@
 <script>
     $(document).ready(function(){
         setTimeout(function(){
-            // $('.quiz__wrap').find('.title p').eq(1).html(`SYSTEM <span class="text--orange">“Done , Clear!!”</span>`) // 벨 여기에 망치 해주면 돼요..
+            $('.system_done').addClass('active');
         }, 30)
         
         // 퀴즈 데이터 배열 (문제, 이미지, 정답)
@@ -142,7 +146,7 @@
 
         function startTimer() {
             var seconds = timerDuration;
-            var milliseconds = 00;
+            var milliseconds = 0;
             startTime = Date.now();
 
             timer = setInterval(function() {
@@ -152,7 +156,7 @@
                 if (seconds <= 0 && milliseconds <= 0) {
                     clearInterval(timer);
                     showFailPopup();  // 시간 초과 시 실패 팝업 표시
-                    $('.quiz__wrap .title').addClass("stop"); // 벨 여기에 시간 초과 했을때 적용 되어야 하는 애니메이션 들어간 Class 넣어주면 돼요!!
+                    $('.quiz__wrap .title').addClass("stop done"); // 시간 초과 애니메이션
                 } else {
                     if (milliseconds <= 0) {
                         milliseconds = 99;
@@ -185,7 +189,7 @@
             // 마지막 문제라면 타이머 멈춤
             if (currentQuestionIndex >= totalQuestions) {
                 stopTimer();  // 타이머 멈춤
-                $('.quiz__wrap .title').addClass("stop"); // 벨 이건 제가 마지막 문제 풀때 stop 들어가게 클래스 예시로 둔거라 벨이 원하는 클래스로 수정해도 돼요!!
+                $('.quiz__wrap .title').addClass("stop");
                 if (score >= 80) {
                     showSuccessPopup();  // 80점 이상일 때 성공 팝업 표시
                 } else {
