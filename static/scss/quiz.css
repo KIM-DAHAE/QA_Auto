@@ -375,7 +375,6 @@ body {
 }
 
 .popup {
-  display: none;
   position: absolute;
   top: 300px;
   left: 50%;
@@ -409,20 +408,23 @@ body {
 .popup.fail .msg span {
   text-decoration: underline;
 }
-.popup.success .result {
+.popup.success img, .popup.lose img {
+  margin-bottom: 40px;
+}
+.popup.success .result, .popup.lose .result {
   padding-bottom: 30px;
   font-size: 18px;
   font-weight: 400;
 }
-.popup.success .result strong {
+.popup.success .result strong, .popup.lose .result strong {
   display: block;
   font-size: 42px;
   font-weight: 700;
 }
-.popup.success .score__wrap {
+.popup.success .score__wrap, .popup.lose .score__wrap {
   padding-bottom: 60px;
 }
-.popup.success .msg {
+.popup.success .msg, .popup.lose .msg {
   padding-bottom: 110px;
 }
 

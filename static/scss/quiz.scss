@@ -420,7 +420,7 @@ body {
 }
 
 .popup {
-    display: none;
+    // display: none;
     position: absolute;
     top: 300px;
     left: 50%;
@@ -462,7 +462,11 @@ body {
         }
     }
 
-    &.success {
+    &.success,
+    &.lose {
+        img {
+            margin-bottom: 40px;
+        }
         .result {
             padding-bottom: 30px;
             font-size: 18px;

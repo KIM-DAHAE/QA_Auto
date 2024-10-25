@@ -74,6 +74,16 @@
             <a href="oxquiz_intro.html" class="btn__next">→ 간식받아 가세요</a>
         </div>
     </div>
+
+    <div class="popup lose">
+        <div class="popup__inner">
+            <img src="static/images/quiz/img_lose.png" alt="실패">
+            <p class="result"><strong>기록! “<span class="record">21</span>초”</strong>저희 Tool은 0.03초인데</p>
+            <p class="score__wrap"><span class="score">50</span>점</p>
+            <p class="msg">안타깝습니다.<br>제안시간에 문제풀이를 마치셨<br> 지만, 기준 점수에는 미달이에요.</p>
+            <a href="oxquiz_intro.html" class="btn__next">→ 간식받아 가세요</a>
+        </div>
+    </div>
 <script>
     $(document).ready(function(){
         setTimeout(function(){
@@ -94,9 +104,9 @@
             { question: "가이드에 준수된 표현일까요?", image: "static/images/quiz/img_question10.png", answer: "X", tip: "배경컬러는 컬러코드딱 1개에요."},
             { question: "카피는 최대 3Line 까지 노출 가능하다.", image: "static/images/quiz/img_question11.png", answer: "X", tip: "카피가 너무 길면 복잡해 보여요."},
             { question: "카피는 1Line 만 적용해도 된다.", image: "static/images/quiz/img_question12.png", answer: "O", tip: "최대 2Line 이니 1Line도 괜찮죠."},
-            // { question: "제품의 배경 컬러는 규정된 #F4F4F4 컬러 코드만 적용 가능하다.", image: "static/images/quiz/img_question13.png", answer: "O", tip: "배경컬러는 컬러코드딱 1개에요."},
-            // { question: "제품은 꽉 차게 크게 노출 시킨다.", image: "static/images/quiz/img_question14.png", answer: "X", tip: "제품 여러개가 노출되면 복잡해 보이겠네요."},
-            // { question: "여러제품 조합이 가능하며 그리드는 준수하지 않는다.", image: "static/images/quiz/img_question15.png", answer: "X", tip: "제품 여러개가 노출되면 복잡해 보이겠네요."},
+            { question: "제품의 배경 컬러는 규정된 #F4F4F4 컬러 코드만 적용 가능하다.", image: "static/images/quiz/img_question13.png", answer: "O", tip: "Guide 컬러가 잘 반영되어 있네요."},
+            { question: "제품은 꽉 차게 크게 노출 시킨다.", image: "static/images/quiz/img_question14.png", answer: "X", tip: "규정된 상하좌우 마진값에 오버되어 보여요."},
+            { question: "여러제품 조합이 가능하며 그리드는 준수하지 않는다.", image: "static/images/quiz/img_question15.png", answer: "X", tip: "제품을 효과적으로 표현할 수 없어요."},
         ];
 
         var selectedQuestions = [];
@@ -174,7 +184,11 @@
             // 마지막 문제라면 타이머 멈춤
             if (currentQuestionIndex >= totalQuestions) {
                 stopTimer();  // 타이머 멈춤
-                showSuccessPopup();  // 성공 팝업 표시
+                if (score >= 80) {
+                    showSuccessPopup();  // 80점 이상일 때 성공 팝업 표시
+                } else {
+                    showLosePopup();  // 80점 미만일 때 실패 팝업 표시
+                }
             } else {
                 // 다음 문제 표시
                 showQuestion(currentQuestionIndex);
@@ -184,6 +198,13 @@
         // 성공 팝업 표시 (소요 시간과 점수 함께 표시)
         function showSuccessPopup() {
             $(".popup.success").addClass("active");
+            $(".record").text(elapsedTime);  // 소요 시간을 경과 시간으로 표시
+            $(".score").text(score);  // 점수 표시
+        }
+
+        // 실패 팝업(lose) 표시 (소요 시간과 점수 함께 표시)
+        function showLosePopup() {
+            $(".popup.lose").addClass("active");
             $(".record").text(elapsedTime);  // 소요 시간을 경과 시간으로 표시
             $(".score").text(score);  // 점수 표시
         }
