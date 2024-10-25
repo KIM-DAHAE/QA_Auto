@@ -78,10 +78,16 @@ body {
 
 @keyframes systemDone {
     0% {
-        transform: translateX(-30%) rotateZ(100deg);
+        transform: scale(0) translateX(-30%) rotateZ(100deg);
+    }
+    35% {
+        transform: scale(1) translateX(-30%) rotateZ(100deg);
+    }
+    40% {
+        transform: scale(1) translateX(-30%) rotateZ(100deg);
     }
     100% {
-        transform: translateX(-50%) rotateZ(0deg);
+        transform: scale(1) translateX(-50%) rotateZ(0deg);
     }
 }
 
@@ -357,12 +363,13 @@ body {
                 top: -50px;
                 width: 250px;
                 height: 250px;
-                transform: translateX(-50%) rotateZ(100deg);
+                transform-style: preserve-3d;
+                transform: scale(0) translateX(-50%) rotateZ(100deg);
                 background: url('../images/quiz/img_systemdone.png') no-repeat left top / 100%;
                 
                 &.active {
                     display: block;
-                    animation: systemDone 0.25s cubic-bezier(.13,.7,1,.49) forwards;
+                    animation: systemDone 0.75s cubic-bezier(.48,.48,.98,.25) forwards;
                 }
             }
 
