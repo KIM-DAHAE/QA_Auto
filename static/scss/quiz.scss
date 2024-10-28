@@ -105,6 +105,10 @@ body {
     &--blue {
         color: #121eff;
     }
+    &--highlight {
+        display: inline-block;
+        box-shadow: inset 0 -28px 0 #FEB95A80; 
+    }
 }
 
 .btn {
@@ -189,8 +193,9 @@ body {
 }
 
 .intro {
-    padding-top: 140px;
+    padding-top: 64px;
     text-align: center;
+    line-height: 1.2;
 
     &__wrap {
         
@@ -210,9 +215,36 @@ body {
         }
     }
     .btn__start {
-        margin-top: 100px;
         span {
             animation: blink 1.5s infinite;
+        }
+    }
+
+    &__tool {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding-top: 60px;
+        padding-bottom: 60px;
+        img {
+            display: block;
+            width: 335px;
+            height: 254px;
+            border-radius: 12px;
+        }
+    }
+
+    &__desc {
+        width: 394px;
+        height: 250px;
+        padding-top: 54px;
+        background: url(../images/quiz/img__box.png) no-repeat;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 29.05px;
+
+        .text--blue {
+            font-weight: 700;
         }
     }
 }
@@ -220,19 +252,22 @@ body {
 .game {
     &--rule {
         display: none;
-        padding-top: 140px;
+        padding-top: 103px;
         text-align: center;
         line-height: 52px;
         h2,
+        .btn__start2,
         strong {
             color: #454545;
         }
         h2 {
-            padding-bottom: 30px;
+            padding-bottom: 55px;
         }
+        .btn__start2,
         strong {
             display: block;
-            padding-top: 30px;
+            margin: 0 auto;
+            padding-top: 100px;
         }
     }
 }
@@ -394,7 +429,7 @@ body {
                         width: 168px;
                         height: 168px;
                         background-color: #feb95a;
-                        animation: bgMove 47s linear forwards;
+                        animation: bgMove 32s linear forwards;
 
                         .waves {
                             transform: translateY(-300%);
@@ -508,7 +543,7 @@ body {
     top: 300px;
     left: 50%;
     width: 600px;
-    min-height: 493px;
+    min-height: 520px;
     transform: translateX(-50%);
     background: #FFFFFFF2;
     box-shadow: 4px 4px 12px 0px #00000033;
@@ -523,13 +558,13 @@ body {
         line-height: 1.2;
 
         .msg {
-            padding-bottom: 40px;
+            padding-bottom: 60px;
         }
     }
 
     &.fail {
         .result {
-            padding-bottom: 30px;
+            padding-bottom: 50px;
             font-size: 26px;
             font-weight: 400;
             strong {
@@ -539,6 +574,7 @@ body {
             }
         }
         .msg {
+            padding-bottom: 80px;
             span {
                 text-decoration: underline;
             }
@@ -575,12 +611,13 @@ body {
 
 .tip {
     &__wrap {
-        padding-top: 25px;
+        padding-bottom: 26px;
         font-size: 16px;
-        font-weight: 500;
-        text-align: center;
+        font-weight: 700;
+        // text-align: center;
         span {
-            display: block;
+            font-weight: 500;
+            // display: block;
         }
     }
 }

@@ -22,8 +22,8 @@
             <div class="quiz__wrap">
                 <div class="title">
                     <p><span class="text--orange">Y</span>OU</p>
-                    <p>SYSTEM</p>
-                    <div class="system_done"></div>
+                    <p>QA Tool</p>
+                    <!-- <div class="system_done"></div> --> <!-- 241028 삭제 -->
                     <div class="timer__wrap">
                         <div class="wave_ani__wrap">
                             <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -50,8 +50,8 @@
                 <div class="quiz">
                     <p>Q. <span class="num"><em class="count">1</em>/10</span></p>
                     <p class="question">여기에 문제가 표시됩니다.</p>
-                    <img src="static/images/quiz/img_question01.png" alt="q1" id="question-image">
                     <p class="tip__wrap">Tip <span class="tip">제품 여러개가 노출되면 복잡해 보이겠네요.</span></p>
+                    <img src="static/images/quiz/img_question01.png" alt="q1" id="question-image">
                     <div class="btn__wrap">
                         <button type="button" class="btn btn__o">O</button>
                         <button type="button" class="btn btn__x">X</button>
@@ -63,8 +63,8 @@
 
     <div class="popup fail">
         <div class="popup__inner">
-            <p class="result"><strong>아쉽습니다.</strong>시간이 너무 적긴 했죠. <br> 저희 Tool 과 lv 을 맞추다 보니, <br>그래도 “휴먼” 인데 대단하세요.</p>
-            <p class="msg">아쉬운 결과를 드려 죄송하지만, <br>그래도 <span>룰은 룰이니깐요,</span><br>좋은 하루되세요.<br>Bye~Bye</p>
+            <p class="result"><strong>아쉽습니다.</strong>시간이 너무 짧았죠. <br> 저희 QA Tool 만큼은 아니지만 <br>그래도 최선을 다해 퀴즈를 풀어주셔서<br>감사합니다.</p>
+            <p class="msg">저희가 준비한 “참가상” 받아가세요!<br>ByeBye~</p>
             <a href="oxquiz_intro.html" class="btn__next">→ 다음 게임</a>
         </div>
     </div>
@@ -72,9 +72,9 @@
     <div class="popup success">
         <div class="popup__inner">
             <img src="static/images/quiz/img_success.png" alt="성공">
-            <p class="result"><strong>기록! “<span class="record">21</span>초”</strong>저희 Tool은 0.03초인데</p>
+            <p class="result"><strong>기록! “<span class="record">21</span>초”</strong>저희 QA Tool은 0.03초만에 풀었는데…</p>
             <p class="score__wrap"><span class="score">90</span>점</p>
-            <p class="msg">축하드려요.<br>역시 콘텐츠를 보실 줄 아시는<br> <span class="text--blue">귀인</span>을 만나게 되어 기쁩니다.</p>
+            <p class="msg">축하드립니다.<br>역시 콘텐츠를 보실 줄 아시는<br> <span class="text--blue">QA Master</span>를 만나게 되어 기쁩니다.</p>
             <a href="oxquiz_intro.html" class="btn__next">→ 간식받아 가세요</a>
         </div>
     </div>
@@ -82,19 +82,21 @@
     <div class="popup lose">
         <div class="popup__inner">
             <img src="static/images/quiz/img_lose.png" alt="실패">
-            <p class="result"><strong>기록! “<span class="record">21</span>초”</strong>저희 Tool은 0.03초인데</p>
+            <p class="result"><strong>기록! “<span class="record">21</span>초”</strong>저희 QA Tool은 0.03초만에 풀었는데…</p>
             <p class="score__wrap"><span class="score">50</span>점</p>
-            <p class="msg">안타깝습니다.<br>제안시간에 문제풀이를 마치셨<br> 지만, 기준 점수에는 미달이에요.</p>
+            <p class="msg">안타깝습니다.<br>제한시간에 문제풀이를 마치셨지만, 아<br>쉽게도 기준 점수에는 부족하네요.</p>
             <a href="oxquiz_intro.html" class="btn__next">→ 간식받아 가세요</a>
         </div>
     </div>
 <script>
     $(document).ready(function(){
-        setTimeout(function(){
-            $('.system_done').addClass('active');
-        }, 1000)
-        
-        // 퀴즈 데이터 배열 (문제, 이미지, 정답)
+        /* s: 241028 스크립트 삭제 */
+        // setTimeout(function(){
+            //     $('.system_done').addClass('active');
+            // }, 1000)
+        /* e: 241028 스크립트 삭제 */
+            
+            // 퀴즈 데이터 배열 (문제, 이미지, 정답)
         var quizData = [
             { question: "이미지내 노출될 수 있는 제품은 오직 1개 이다.", image: "static/images/quiz/img_question01.png", answer: "O", tip: "제품 여러개가 노출되면 복잡해 보이겠네요."},
             { question: "비슷한 제품군은 2개 이상 노출 가능하다.", image: "static/images/quiz/img_question02.png", answer: "X", tip: "모니터와 TV가 비슷하게 보이긴해요."},
@@ -118,7 +120,7 @@
         var correctAnswers = 0;
         var score = 0;  // 점수 저장
         var currentQuestionIndex = 0;
-        var timerDuration = 45; // 문제 풀이 시간
+        var timerDuration = 5; // 문제 풀이 시간 /* 241028 30초로 변경 */
         var timer;
         var startTime;
         var elapsedTime = 0; // 소요시간 저장
