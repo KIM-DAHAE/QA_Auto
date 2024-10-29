@@ -198,7 +198,9 @@ body {
     line-height: 1.2;
 
     &__wrap {
-        
+        .title {
+            margin-top: -56px;
+        }
     }
 
     .text--sm {
