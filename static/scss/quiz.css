@@ -227,7 +227,6 @@ body {
   line-height: 52px;
 }
 .game--rule h2,
-.game--rule .btn__start2,
 .game--rule strong {
   color: #454545;
 }
@@ -483,7 +482,7 @@ body {
   top: 300px;
   left: 50%;
   width: 600px;
-  min-height: 520px;
+  min-height: 507px;
   transform: translateX(-50%);
   background: rgba(255, 255, 255, 0.9490196078);
   box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.2);
@@ -499,6 +498,9 @@ body {
 .popup__inner .msg {
   padding-bottom: 60px;
 }
+.popup.fail .popup__inner {
+  padding-top: 83px;
+}
 .popup.fail .result {
   padding-bottom: 50px;
   font-size: 26px;
@@ -511,9 +513,7 @@ body {
 }
 .popup.fail .msg {
   padding-bottom: 80px;
-}
-.popup.fail .msg span {
-  text-decoration: underline;
+  font-size: 26px;
 }
 .popup.success img, .popup.lose img {
   margin-bottom: 40px;
@@ -529,10 +529,12 @@ body {
   font-weight: 700;
 }
 .popup.success .score__wrap, .popup.lose .score__wrap {
-  padding-bottom: 60px;
+  padding-bottom: 50px;
+  font-size: 42px;
 }
 .popup.success .msg, .popup.lose .msg {
-  padding-bottom: 110px;
+  padding-bottom: 70px;
+  font-size: 28px;
 }
 
 .tip__wrap {

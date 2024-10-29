@@ -98,20 +98,20 @@
             
             // 퀴즈 데이터 배열 (문제, 이미지, 정답)
         var quizData = [
-            { question: "이미지내 노출될 수 있는 제품은 오직 1개 이다.", image: "static/images/quiz/img_question01.png", answer: "O", tip: "제품 여러개가 노출되면 복잡해 보이겠네요."},
+            { question: "이미지 내 노출할 수 있는 제품은 오직 1개이다.", image: "static/images/quiz/img_question01.png", answer: "O", tip: "제품이 여러 개 노출되면 복잡해 보일 것 같아요."},
             { question: "비슷한 제품군은 2개 이상 노출 가능하다.", image: "static/images/quiz/img_question02.png", answer: "X", tip: "모니터와 TV가 비슷하게 보이긴해요."},
-            { question: "동일한 시리즈의 제품은 여러개의 제품 노출로 디자인 가능하다.", image: "static/images/quiz/img_question03.png", answer: "O", tip: "둘다 Neo QLED 라서 같은 시리즈네요."},
+            { question: "동일한 시리즈의 제품은 여러 개의 제품을 함께 노출해도 된다.", image: "static/images/quiz/img_question03.png", answer: "O", tip: "TV 화면에 같은 제품명이 쓰여 있는 것 같기도 하네요."},
             { question: "PTK의 로고는 아래와 같이 사용된다.", image: "static/images/quiz/img_question04.png", answer: "O", tip: "PTK 로고 정석입니다."},
             { question: "PTK의 로고는 아래와 같이 사용된다.", image: "static/images/quiz/img_question05.png", answer: "X", tip: "PTK 로고는 단일 컬러로 이루어져있어요."},
             { question: "PTK의 로고는 아래와 같이 사용된다.", image: "static/images/quiz/img_question06.png", answer: "X", tip: "이건 로고보다는 텍스트 같죠?"},
             { question: "이미지내 노출될 수 있는 제품은 오직 1개 이다.", image: "static/images/quiz/img_question07.png", answer: "O", tip: "제품 여러개가 노출되면 복잡해 보이겠네요."},
             { question: "타이틀 영역에는 사용자의 의구심을 유발할 수 있는 줄임말 표현이 가능하다.", image: "static/images/quiz/img_question08.png", answer: "X", tip: "정확한 정보 표현이 노출되어야 해요."},
-            { question: "제품의 배경 컬러는 제품에 맞는 컬러로 배치하여 노출 가능하다.", image: "static/images/quiz/img_question09.png", answer: "X", tip: "Align 맞춘 배경들이 더 깔끔해요."},
-            { question: "가이드에 준수된 표현일까요?", image: "static/images/quiz/img_question10.png", answer: "X", tip: "배경컬러는 컬러코드딱 1개에요."},
-            { question: "카피는 최대 3Line 까지 노출 가능하다.", image: "static/images/quiz/img_question11.png", answer: "X", tip: "카피가 너무 길면 복잡해 보여요."},
-            { question: "카피는 1Line 만 적용해도 된다.", image: "static/images/quiz/img_question12.png", answer: "O", tip: "최대 2Line 이니 1Line도 괜찮죠."},
-            { question: "제품의 배경 컬러는 규정된 #F7F7F7 컬러 코드만 적용 가능하다.", image: "static/images/quiz/img_question13.png", answer: "O", tip: "Guide 컬러가 잘 반영되어 있네요."},
-            { question: "제품은 꽉 차게 크게 노출 시킨다.", image: "static/images/quiz/img_question14.png", answer: "X", tip: "규정된 상하좌우 마진값에 오버되어 보여요."},
+            { question: "제품의 배경 색상은 제품과 어울리는 컬러로 적용해도 된다.", image: "static/images/quiz/img_question09.png", answer: "X", tip: "오히려 제품이 잘 안 보이는 것 같아요."},
+            { question: "제품이미지들에 맞추어 그라데이션도, 제품의 표현도 가능하다.", image: "static/images/quiz/img_question10.png", answer: "X", tip: "배경컬러는 컬러코드는 1개 코드로만 이루어져요."},
+            { question: "이미지 하단 카피는 3줄까지 작성해도 된다.", image: "static/images/quiz/img_question11.png", answer: "X", tip: "카피가 너무 길어서 복잡해 보이네요."},
+            { question: "이미지 하단 카피는 1줄만 작성해도 된다.", image: "static/images/quiz/img_question12.png", answer: "O", tip: ""},
+            { question: "제품의 배경 색상은 규정된 #F7F7F7 컬러 코드만 적용해도 된다.", image: "static/images/quiz/img_question13.png", answer: "O"},
+            { question: "제품은 잘 보이도록 되도록 크게 노출해야 한다.", image: "static/images/quiz/img_question14.png", answer: "X", tip: "너무 한 쪽에 치우쳐 있는 것 같아요."},
             { question: "여러제품 조합이 가능하며 그리드는 준수하지 않는다.", image: "static/images/quiz/img_question15.png", answer: "X", tip: "제품을 효과적으로 표현할 수 없어요."},
         ];
 
@@ -139,7 +139,15 @@
                 var question = selectedQuestions[index];
                 $(".question").text(question.question); 
                 $("#question-image").attr("src", question.image);
-                $(".tip").text(question.tip);  // 문제의 팁 표시
+                
+                // 팁이 있는 경우만 표시
+                if (question.tip) {
+                    $(".tip__wrap").show();
+                    $(".tip").text(question.tip);  // 문제의 팁 표시
+                } else {
+                    $(".tip__wrap").hide();  // 팁이 없으면 숨김
+                }
+
                 $(".count").text(index + 1);  // 현재 문제 번호 표시
             } else {
                 console.error("Index out of bounds");

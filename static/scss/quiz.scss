@@ -258,7 +258,6 @@ body {
         text-align: center;
         line-height: 52px;
         h2,
-        .btn__start2,
         strong {
             color: #454545;
         }
@@ -545,7 +544,7 @@ body {
     top: 300px;
     left: 50%;
     width: 600px;
-    min-height: 520px;
+    min-height: 507px;
     transform: translateX(-50%);
     background: #FFFFFFF2;
     box-shadow: 4px 4px 12px 0px #00000033;
@@ -565,6 +564,9 @@ body {
     }
 
     &.fail {
+        .popup__inner {
+            padding-top: 83px;
+        }
         .result {
             padding-bottom: 50px;
             font-size: 26px;
@@ -577,9 +579,7 @@ body {
         }
         .msg {
             padding-bottom: 80px;
-            span {
-                text-decoration: underline;
-            }
+            font-size: 26px;
         }
     }
 
@@ -601,12 +601,14 @@ body {
 
         .score {
             &__wrap {
-                padding-bottom: 60px;
+                padding-bottom: 50px;
+                font-size: 42px;
             }
         }
 
         .msg {
-            padding-bottom: 110px;
+            padding-bottom: 70px;
+            font-size: 28px;
         }
     }
 }
