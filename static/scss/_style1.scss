@@ -15,8 +15,10 @@ body {
 
 .wrapper {
     width: 100%;
+    min-width: 1720px;
     min-height: 100%;
-    background-color: $gray100;
+    // 241029 background-color 수정
+    background-color: #f4f5f9;
 }
 
 .container {
@@ -83,15 +85,16 @@ body {
 // layout_section
 .section {
     &-wrap {
-        padding: 40px 40px 40px 128px;
-        padding-left: 128px;
+        // 241029 패딩 수정, width 추가
+        width: 100%;
+        padding: 2.08% 2.08% 2.08% 6.66%;
     }
 }
 
 // layout_head
 .head {
     &__title {
-        padding-bottom: 22px;
+        margin-bottom: 22px;
         font-size: 24px;
         line-height: 29.05px;
     }
