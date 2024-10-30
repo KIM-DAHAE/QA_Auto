@@ -37,7 +37,14 @@
                 .desc {
                     &__total {
                         width: 219px;
-                        
+                        .sum__total__title {
+                            display: block;
+                            margin-bottom: 6px;
+                            font-size: 24px;
+                            font-weight: 600;
+                            line-height: 29.05px;
+                            color: #131313;
+                        }
                         p {
                             font-weight: 500;
                             line-height: 19.36px;
@@ -48,7 +55,7 @@
                         }
                     }
                     &__week {
-                        margin-bottom: 47px;
+                        margin-bottom: 12px;
                         
                         .icon__q {
                             display: inline-block;
