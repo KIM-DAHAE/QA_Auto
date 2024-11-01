@@ -281,11 +281,17 @@
         }
 
         function animateBars() {
-            var maxBarWidth = 212; // 212px로 고정
-            var averageMaxWidth = 104; // 104px로 고정
+            var maxBarWidth = 212; // 최대 너비는 212px
+            var averageMaxWidth = 104; // 최대 너비는 104px
             var qaWidth = "7px"; // 7px 고정
 
-            var playerWidth = Math.min((elapsedTime / 23) * maxBarWidth, maxBarWidth) + "px";
+            var playerWidth;
+            if (elapsedTime < 23) {
+                playerWidth = Math.min((elapsedTime / 23) * averageMaxWidth, averageMaxWidth) + "px";
+            } else {
+                playerWidth = Math.min((elapsedTime / 23) * maxBarWidth, maxBarWidth) + "px";
+            }
+
             var averageWidth = averageMaxWidth + "px"; // average는 104px 고정
 
             // 초기 상태 설정
@@ -296,7 +302,7 @@
                 $(".player .graph .bar").css("width", playerWidth);
                 $(".average .graph .bar").css("width", averageWidth);
                 $(".qa .graph .bar").css("width", qaWidth);
-            }, 100); 
+            }, 100);
         }
 
         $(".btn__o").click(function() {
