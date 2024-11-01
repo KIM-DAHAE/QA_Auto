@@ -139,8 +139,9 @@ body {
   right: 0;
   width: 53px;
   height: 30px;
-  background: url(../images/quiz/ico_arrow.png) 100% 0;
+  background: url(../images/quiz/ico_arrow.png) no-repeat;
   animation: arrow 1.5s infinite;
+  background-size: cover;
 }
 .btn__wrap {
   font-weight: 400;
@@ -337,29 +338,6 @@ body {
   font-size: 16px;
   font-weight: 700;
   line-height: 1.2;
-}
-.guide__wrap .btn__start1 {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 330px;
-  width: 100%;
-  height: 100%;
-}
-.guide__wrap .btn__start1 span {
-  position: relative;
-  display: block;
-}
-.guide__wrap .btn__start1 span:before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 45px;
-  right: 0;
-  width: 53px;
-  height: 30px;
-  background: url(../images/quiz/ico_arrow.png) 100% 0;
-  animation: arrow 1.5s infinite;
 }
 
 .quiz {
@@ -653,9 +631,11 @@ body {
 }
 .popup.success .img__fail, .popup.lose .img__fail {
   display: none;
+  width: 6.9672131148vw;
 }
 .popup.success .img__success, .popup.lose .img__success {
   display: inline;
+  width: 4.5901639344vw;
 }
 .popup.lose .msg.fail, .popup.lose .msg.success {
   display: none;
@@ -687,6 +667,17 @@ body {
 }
 
 @media screen and (max-width: 1220px) {
+  @keyframes arrow {
+    0% {
+      right: 0;
+    }
+    50% {
+      right: calc(100% - 4.3442622951vw);
+    }
+    100% {
+      right: 0;
+    }
+  }
   body, html {
     font-size: 2.9508196721vw;
   }
@@ -1019,6 +1010,7 @@ body {
   }
   .popup .record__box .average .bar {
     width: 15.4098360656vw;
+    max-width: 9.8360655738vw !important;
     background-color: #7D7D7D;
   }
   .popup .record__title {

@@ -148,8 +148,9 @@ body {
                 right: 0;
                 width: 53px;
                 height: 30px;
-                background: url(../images/quiz/ico_arrow.png) 100% 0;
+                background: url(../images/quiz/ico_arrow.png) no-repeat;
                 animation: arrow 1.5s infinite;
+                background-size: cover;
             }
         }
     }
@@ -382,29 +383,30 @@ body {
             }
         }
 
-        .btn__start1 {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            max-width: 330px;
-            width: 100%;
-            height: 100%;
-            span {
-                position: relative;
-                display: block;
-                &:before {
-                    content: '';
-                    display: block;
-                    position: absolute;
-                    top: 45px;
-                    right: 0;
-                    width: 53px;
-                    height: 30px;
-                    background: url(../images/quiz/ico_arrow.png) 100% 0;
-                    animation: arrow 1.5s infinite;
-                }
-            }
-        }
+        // .btn__start1 {
+        //     display: inline-flex;
+        //     align-items: center;
+        //     justify-content: center;
+        //     max-width: 330px;
+        //     width: 100%;
+        //     height: 100%;
+        //     span {
+        //         position: relative;
+        //         display: block;
+        //         &:before {
+        //             content: '';
+        //             display: block;
+        //             position: absolute;
+        //             top: 45px;
+        //             right: 0;
+        //             width: 53px;
+        //             height: 30px;
+        //             background: url(../images/quiz/ico_arrow.png) no-repeat;
+        //             animation: arrow 1.5s infinite;
+        //             background-size: cover;
+        //         }
+        //     }
+        // }
     }
 }
 
@@ -765,9 +767,12 @@ body {
 
         .img__fail {
             display: none;
+            width: vw-tab(85);
+            
         }
         .img__success {
             display: inline;
+            width: vw-tab(56);
         }
     }
 
@@ -813,6 +818,18 @@ body {
 }
 
 @media screen and (max-width: 1220px) {
+    @keyframes arrow {
+        0% {
+            right: 0;
+        }
+        50% {
+            right: calc(100% - vw-tab(53));
+        }
+        100% {
+            right: 0;
+        }
+    }
+
     body, html {
         font-size: vw-tab(36);
     }
@@ -1237,6 +1254,7 @@ body {
                 .average {
                     .bar {
                         width: vw-tab(188);
+                        max-width: vw-tab(120) !important;
                         background-color: #7D7D7D;
                     }
                 }
