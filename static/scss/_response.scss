@@ -1,0 +1,24 @@
+// viewport size
+$pc-size: 1220;
+
+// vw 변환 function 
+@function vw-tab($target) {
+  @if type-of($target) == number {
+    @return calc(($target * 100) / $pc-size) * 1vw;
+  } @else if type-of($target) == list {
+    $vw: ();
+    @each $value in $target {
+      @if type-of($value) == number {
+        $vw: append($vw, calc(($value * 100) / $pc-size) * 1vw);
+      } @else if type-of($value) == string {
+        $vw: append($vw, $value);
+      }
+    }
+    @return $vw;
+  } @else {
+    @return $target;
+  }
+}
+
+// 사용법
+// 클래스명 margin: vw-tab(50);
