@@ -865,7 +865,7 @@ body {
   .quiz__wrap .title .water_drop__ani {
     position: absolute;
     left: 50%;
-    top: 268%;
+    top: 225%;
     z-index: -1;
     display: flex;
     width: 6.5573770492vw;
