@@ -281,17 +281,21 @@
         }
 
         function animateBars() {
-            // 목표 너비 설정
-            var playerPercentage = (elapsedTime / timerDuration) * 100 + "%"; // player는 퍼센트로 계산
-            var averageWidth = "104px"; // average는 104px 고정
+            var maxBarWidth = 212; // player bar의 최대 너비를 212px로 고정
+            var averageMaxWidth = 104; // average bar의 최대 너비를 104px로 고정
             var qaWidth = "7px"; // qa는 7px 고정
+
+            // player의 너비를 maxBarWidth를 기준으로 비율 계산
+            // 예를 들어, 23초를 기준으로 player bar의 비율을 계산합니다.
+            var playerWidth = Math.min((elapsedTime / 23) * maxBarWidth, maxBarWidth) + "px";
+            var averageWidth = averageMaxWidth + "px"; // average는 104px 고정
 
             // 초기 상태를 명확하게 설정
             $(".player .graph .bar, .average .graph .bar, .qa .graph .bar").css("width", "0");
 
             // setTimeout을 사용해 목표 너비로 변경하여 애니메이션 트리거
             setTimeout(function() {
-                $(".player .graph .bar").css("width", playerPercentage);
+                $(".player .graph .bar").css("width", playerWidth);
                 $(".average .graph .bar").css("width", averageWidth);
                 $(".qa .graph .bar").css("width", qaWidth);
             }, 100); // 0.1초 딜레이 후 애니메이션 트리거
