@@ -266,8 +266,7 @@ body {
 }
 
 .game--rule {
-  display: none;
-  padding-top: 103px;
+  padding-top: 117px;
   text-align: center;
   line-height: 52px;
 }
@@ -716,7 +715,7 @@ body {
     font-size: 3.9344262295vw;
   }
   .contents {
-    padding-bottom: 28.9344262295vw;
+    padding-bottom: 24.5901639344vw;
   }
   .contents .title p {
     padding: 1.1475409836vw 0vw;
@@ -732,16 +731,16 @@ body {
     width: 16.393442623vw;
   }
   .intro {
-    padding-top: 39.5901639344vw;
+    padding-top: 24.8360655738vw;
   }
   .intro__wrap .title {
     margin-top: -5.4918032787vw;
   }
   .intro .btn__start {
-    margin-top: 49.5081967213vw;
+    margin-top: 35.5737704918vw;
   }
   .game--rule {
-    padding-top: 26.9672131148vw;
+    padding-top: 9.5901639344vw;
     line-height: 4.262295082vw;
   }
   .game--rule h2,
@@ -749,7 +748,7 @@ body {
     color: #454545;
   }
   .game--rule h2 {
-    padding-bottom: 11.3114754098vw;
+    padding-bottom: 2.4590163934vw;
   }
   .game--rule .btn__start1 {
     margin-top: 48.5245901639vw;

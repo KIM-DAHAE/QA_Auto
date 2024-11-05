@@ -302,8 +302,8 @@ body {
 
 .game {
     &--rule {
-        display: none;
-        padding-top: 103px;
+        // display: none;
+        padding-top: 117px;
         text-align: center;
         line-height: 52px;
         h2,
@@ -894,7 +894,7 @@ body {
     // }
     
     .contents {
-        padding-bottom: vw-tab(353);
+        padding-bottom: vw-tab(300);
         .title {
             p {
                 padding: vw-tab(14 0);
@@ -916,7 +916,7 @@ body {
     }
     
     .intro {
-        padding-top: vw-tab(483);
+        padding-top: vw-tab(303);
     
         &__wrap {
             .title {
@@ -925,20 +925,20 @@ body {
         }
     
         .btn__start {
-            margin-top: vw-tab(604);
+            margin-top: vw-tab(434);
         }
     }
     
     .game {
         &--rule {
-            padding-top: vw-tab(329);
+            padding-top: vw-tab(117);
             line-height: vw-tab(52);
             h2,
             strong {
                 color: #454545;
             }
             h2 {
-                padding-bottom: vw-tab(138);
+                padding-bottom: vw-tab(30);
             }
             .btn__start1 {
                 margin-top: vw-tab(592);

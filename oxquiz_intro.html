@@ -28,19 +28,18 @@
                 </div>
                 <div class="intro">
                     <!-- <p class="text--sm">죄송하지만,<strong>저희 시스템은 다 100점 만점이라...</strong>대결에 의미가 있을지.. </p> -->
-                    <p>저희 QA Tool을 간접 체험 할 수 있는<br> 미니게임이에요.<br> 
-                        겨우 10문제! <span class="text--red">30초 내에 80점</span>을 맞추신 분들께<br> <span class="text--red">달달한 간식</span>을 드려요.</p>
+                    <p>저희 QA Tool을 간접 체험 할 수 있는<br> <span class="text--blue">미니게임</span> 입니다.</p>
                     <!-- <div class="intro__tool">
                         <img src="static/images/quiz/img__tool01.gif" alt="tool 예시">
                         <div class="intro__desc">참고로 저희가 개발한 QA Tool은<br>이 게임을 <span class="text--blue">0.03초만</span>에<br> <span class="text--blue">100점</span>으로 완료 했답니다.</div>
                     </div> -->
+                    <div class="game--rule">
+                        <h2>GAME RULE</h2>
+                        <p class="text--highlight">앞으로 보여드리는 Content Guide를 먼저 확인해 주세요.</p>
+                        <p>출제 되는 문제에 대하여 기억하신 Content Guide를<br> 잘 반영하고 있는지 <span class="text--red">O, X로 답</span>을 맞춰주세요.</p>
+                        <!-- <button type="button" class="btn__start1"><span>Next</span></button> -->
+                    </div>
                     <button class="btn__start">그럼 시작하시죠. <span>Start→</span></button>
-                </div>
-                <div class="game--rule">
-                    <h2>GAME RULE</h2>
-                    <p class="text--highlight">앞으로 보여드리는 Content Guide를 먼저 확인해 주세요.</p>
-                    <p>출제 되는 문제에 대하여 기억하신 Content Guide를<br> 잘 반영하고 있는지 <span class="text--red">O, X로 답</span>을 맞춰주세요.</p>
-                    <button type="button" class="btn__start1"><span>Next</span></button>
                 </div>
             </div>
             <!-- // 241028 문구 수정 -->
@@ -93,12 +92,12 @@
     $(document).ready(function(){
         /* s: 241028 스크립트 수정 */
         $('.btn__start').on("click", function(){
+            // $(this).parent('.intro').hide();
+            // $(this).parent('.intro').siblings('.game--rule').show();
             $(this).parent('.intro').hide();
-            $(this).parent('.intro').siblings('.game--rule').show();
-            $('.btn__start1').click(function(){
-                $(this).closest('.game--rule').hide();
-                $('.content__guide').fadeIn();
-            })
+            $('.content__guide').fadeIn();
+            // $('.btn__start1').click(function(){
+            // })
             // setTimeout(function(){
                 //     $('.intro__wrap').hide();
                 //     $('.content__guide').fadeIn();
