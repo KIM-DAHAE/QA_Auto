@@ -656,7 +656,6 @@ body {
             }
             
             .player {
-                font-size: 28px;
                 .record__title {
                 }
                 .fail {
@@ -683,9 +682,14 @@ body {
             }
 
             .qa {
+                color: #F60909;
+                font-size: 28px;
+                font-weight: 600;
+
                 .bar {
                     width: 7px;
                 }
+                
             }
             
             .average {
@@ -1225,7 +1229,6 @@ body {
                 }
                 
                 .player {
-                    font-size: vw-tab(28);
                     .record__title {
                     }
                     .fail {
@@ -1252,6 +1255,7 @@ body {
                 }
 
                 .qa {
+                    font-size: vw-tab(28);
                     .bar {
                         width: vw-tab(7);
                     }

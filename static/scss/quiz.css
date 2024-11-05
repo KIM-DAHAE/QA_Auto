@@ -556,9 +556,6 @@ body {
 .popup .record__box li + li {
   padding-top: 20px;
 }
-.popup .record__box .player {
-  font-size: 28px;
-}
 .popup .record__box .player .fail {
   color: #E9501E;
 }
@@ -577,6 +574,11 @@ body {
 .popup .record__box .graph__wrap {
   max-width: 300px;
   width: 80%;
+}
+.popup .record__box .qa {
+  color: #F60909;
+  font-size: 28px;
+  font-weight: 600;
 }
 .popup .record__box .qa .bar {
   width: 7px;
@@ -987,9 +989,6 @@ body {
   .popup .record__box li + li {
     padding-top: 1.6393442623vw;
   }
-  .popup .record__box .player {
-    font-size: 2.2950819672vw;
-  }
   .popup .record__box .player .fail {
     color: #E9501E;
   }
@@ -1008,6 +1007,9 @@ body {
   .popup .record__box .graph__wrap {
     max-width: 24.5901639344vw;
     width: 80%;
+  }
+  .popup .record__box .qa {
+    font-size: 2.2950819672vw;
   }
   .popup .record__box .qa .bar {
     width: 0.5737704918vw;
