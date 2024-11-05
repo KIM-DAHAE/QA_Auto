@@ -917,6 +917,11 @@ body {
     
     .intro {
         padding-top: vw-tab(303);
+
+        >p {
+            font-size: vw-tab(42);
+            font-weight: 600;
+        }
     
         &__wrap {
             .title {
@@ -939,6 +944,7 @@ body {
             }
             h2 {
                 padding-bottom: vw-tab(30);
+                font-size: vw-tab(32);
             }
             .btn__start1 {
                 margin-top: vw-tab(592);
