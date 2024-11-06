@@ -86,6 +86,14 @@ body {
     transform: scale(1) translateX(-50%) rotateZ(0deg);
   }
 }
+@keyframes badgeShow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .text--sm {
   font-size: 16px;
 }
@@ -576,12 +584,29 @@ body {
   width: 80%;
 }
 .popup .record__box .qa {
-  color: #F60909;
   font-size: 28px;
   font-weight: 600;
 }
+.popup .record__box .qa .record__title {
+  display: block;
+  position: relative;
+}
+.popup .record__box .qa .record__title:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: -44px;
+  width: 32px;
+  height: 32px;
+  background: url(../images/quiz/img_badge.png) no-repeat;
+  transform: translateY(-50%);
+  background-size: cover;
+  animation: badgeShow 1s linear;
+}
 .popup .record__box .qa .bar {
   width: 7px;
+  background-color: #F60909;
 }
 .popup .record__box .average .bar {
   width: 188px;
@@ -1011,8 +1036,14 @@ body {
   .popup .record__box .qa {
     font-size: 2.2950819672vw;
   }
+  .popup .record__box .qa .record__title:before {
+    left: -3.606557377vw;
+    width: 2.6229508197vw;
+    height: 2.6229508197vw;
+  }
   .popup .record__box .qa .bar {
     width: 0.5737704918vw;
+    background-color: #F60909;
   }
   .popup .record__box .average .bar {
     width: 15.4098360656vw;

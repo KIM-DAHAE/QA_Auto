@@ -92,6 +92,15 @@ body {
     }
 }
 
+@keyframes badgeShow {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .text {
     &--sm {
         font-size: 16px;
@@ -682,12 +691,31 @@ body {
             }
 
             .qa {
-                color: #F60909;
                 font-size: 28px;
                 font-weight: 600;
 
+                .record__title {
+                    display: block;
+                    position: relative;
+
+                    &:before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 50%;
+                        left: -44px;
+                        width: 32px;
+                        height: 32px;
+                        background: url(../images/quiz/img_badge.png) no-repeat;
+                        transform: translateY(-50%);
+                        background-size: cover;
+                        animation: badgeShow 1s linear;
+                    }
+                }
+
                 .bar {
                     width: 7px;
+                    background-color: #F60909;
                 }
                 
             }
@@ -1256,8 +1284,18 @@ body {
 
                 .qa {
                     font-size: vw-tab(28);
+
+                    .record__title {
+                        &:before {
+                            left: vw-tab(-44);
+                            width: vw-tab(32);
+                            height: vw-tab(32);
+                        }
+                    }
+
                     .bar {
                         width: vw-tab(7);
+                        background-color: #F60909;
                     }
                 }
                 
