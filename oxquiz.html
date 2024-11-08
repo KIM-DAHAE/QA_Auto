@@ -89,14 +89,16 @@
         </div>
     </div> -->
 
-    <div class="popup lose">
+    <div class="popup">
         <div class="popup__inner">
             <div class="popup__title__wrap">
                 <p class="popup__title">아쉽습니다</p>
                 <p class="score__wrap"><span class="score">50</span>점</p>
             </div>
             <img src="static/images/quiz/img_lose.png" alt="실패" class="img__fail">
-            <img src="static/images/quiz/img_success.png" alt="성공" class="img__success">
+            <img src="static/images/quiz/img_success1.png" alt="성공" class="img__success1">
+            <img src="static/images/quiz/img_success2.png" alt="성공" class="img__success2">
+            <img src="static/images/quiz/img_success3.png" alt="성공" class="img__success3">
             <div class="record__box">
                 <ul>
                     <li class="player">
@@ -105,7 +107,7 @@
                         <div class="graph__wrap">
                             <div class="graph">
                                 <div class="bar"></div>
-                                <p class="result"><span class="record">23</span>초</p>
+                                <p class="result"><span class="record">48</span></p>
                             </div>
                         </div>
                     </li>
@@ -114,7 +116,7 @@
                         <div class="graph__wrap">
                             <div class="graph">
                                 <div class="bar"></div>
-                                <p class="result">23초</p>
+                                <p class="result">48초</p>
                             </div>
                         </div>
                     </li>
@@ -130,9 +132,12 @@
                 </ul>
             </div>
             <p class="msg fail">시간이 너무 짧았죠.<br>최선을 다해 퀴즈를 풀어주셔서 감사합니다.</p>
-            <p class="msg success">축하드립니다.<br>역시 콘텐츠를 보실 줄 아시는 <br><strong class="text--blue">QA Master</strong>를 만나게 되어 기쁩니다.</p>
+            <p class="msg success1">"와우, 이건 거의 <strong class="text--blue">‘QA 마스터’</strong> 급 실력인데요?<br> 속도와 정확도 모두 완벽합니다!"</p>
+            <p class="msg success2">"오~ 이건 거의 <strong class="text--blue">‘QA 스페셜리스트’</strong><br> 수준이네요! 한 수 배우고 갑니다!"</p>
+            <p class="msg success3">"오~ 아슬아슬했지만 성공하셨습니다!<br> 끝까지 포기 없는 <strong class="text--blue">‘QA 챌린저’</strong>다운 모습이네요!"</p>
             <p class="msg lose">안타깝습니다.<br>제한시간에 문제풀이를 마치셨지만,<br>아쉽게도 기준 점수에는 부족하네요.</p>
             <a href="oxquiz_intro.html" class="btn__next">→ 참여해주셔서 감사합니다.</a>
+            <img src="static/images/quiz/img_grade.png" alt="등급표" class="img__grade">
         </div>
     </div>
      
@@ -243,13 +248,13 @@
         var correctAnswers = 0;
         var score = 0;  
         var currentQuestionIndex = 0;
-        var timerDuration = 30; 
+        var timerDuration = 90; 
         var timer;
         var startTime;
         var elapsedTime = 0;
 
         function selectRandomQuestions() {
-            var quizPool = quizData.slice(); 
+            var quizPool = quizData.slice();
             while (selectedQuestions.length < totalQuestions) {
                 var randomIndex = Math.floor(Math.random() * quizPool.length);
                 selectedQuestions.push(quizPool.splice(randomIndex, 1)[0]);
@@ -259,19 +264,9 @@
         function showQuestion(index) {
             if (index < selectedQuestions.length) {
                 var question = selectedQuestions[index];
-                $(".question").text(question.question); 
+                $(".question").text(question.question);
                 $("#question-image").attr("src", question.image);
-                
-                if (question.tip) {
-                    $(".tip__wrap").show();
-                    $(".tip").text(question.tip);
-                } else {
-                    $(".tip__wrap").hide();
-                }
-
                 $(".count").text(index + 1);
-            } else {
-                console.error("Index out of bounds");
             }
         }
 
@@ -312,7 +307,7 @@
                 var correctAnswer = selectedQuestions[currentQuestionIndex].answer;
                 if (userAnswer === correctAnswer) {
                     correctAnswers++;
-                    score += 10; 
+                    score += 10;
                 }
                 currentQuestionIndex++;
             }
@@ -330,25 +325,34 @@
             }
         }
 
-        // 성공 팝업 표시 함수
         function showSuccessPopup() {
             $(".popup").removeClass("fail lose").addClass("success active");
-            $(".record").text(elapsedTime);  
-            $(".score").text(score);
-            $(".quiz").css("display", "none");
-            animateBars();
-        }
 
-        // 실패 팝업 표시 함수
-        function showLosePopup() {
-            $(".popup").removeClass("fail success").addClass("lose active");
+            if (elapsedTime <= 30) {
+                $(".msg.success1").show();
+                $(".msg.success2, .msg.success3").hide();
+            } else if (elapsedTime <= 60) {
+                $(".msg.success2").show();
+                $(".msg.success1, .msg.success3").hide();
+            } else {
+                $(".msg.success3").show();
+                $(".msg.success1, .msg.success2").hide();
+            }
+
             $(".record").text(elapsedTime);
             $(".score").text(score);
             $(".quiz").css("display", "none");
             animateBars();
         }
 
-        // 시간 초과 팝업 표시 함수
+        function showLosePopup() {
+            $(".popup").removeClass("success fail").addClass("lose active");
+            $(".record").text(elapsedTime);
+            $(".score").text(score);
+            $(".quiz").css("display", "none");
+            animateBars();
+        }
+
         function showFailPopup() {
             $(".popup").removeClass("lose success").addClass("fail active");
             $(".quiz").css("display", "none");
@@ -356,27 +360,18 @@
         }
 
         function animateBars() {
-            var maxBarWidth = 212; // 최대 너비는 212px
-            var averageMaxWidth = 104; // 최대 너비는 104px
-            var qaWidth = "7px"; // 7px 고정
+            var maxBarWidth = 229; // player bar max width
+            var averageMaxWidth = 117; // average bar max width
+            var qaWidth = "7px"; // qa bar is always 7px
 
-            var playerWidth;
-            if (elapsedTime < 23) {
-                playerWidth = Math.min((elapsedTime / 23) * averageMaxWidth, averageMaxWidth) + "px";
-            } else {
-                playerWidth = Math.min((elapsedTime / 23) * maxBarWidth, maxBarWidth) + "px";
-            }
+            var playerWidth = Math.min((elapsedTime / 48) * maxBarWidth, maxBarWidth) + "px"; 
+            var averageWidth = averageMaxWidth + "px"; 
 
-            var averageWidth = averageMaxWidth + "px"; // average는 104px 고정
-
-            // 초기 상태 설정
-            $(".player .graph .bar, .average .graph .bar, .qa .graph .bar").css("width", "0");
-
-            // setTimeout을 사용해 목표 너비로 변경하여 애니메이션 트리거
             setTimeout(function() {
                 $(".player .graph .bar").css("width", playerWidth);
-                $(".average .graph .bar").css("width", averageWidth);
                 $(".qa .graph .bar").css("width", qaWidth);
+                $(".average .graph .bar").css("width", averageWidth);
+                $(".player .result .record").text(elapsedTime + "초");
             }, 100);
         }
 

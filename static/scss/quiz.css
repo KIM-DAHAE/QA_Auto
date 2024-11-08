@@ -515,25 +515,24 @@ body {
 .popup {
   display: none;
   position: absolute;
-  top: 427px;
+  top: 310px;
   left: 50%;
-  width: 720px;
-  min-height: 800px;
+  width: 1220px;
+  min-height: 969px;
   transform: translateX(-50%);
   background: #FFF;
-  box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.2);
 }
 .popup.active {
   display: block;
 }
 .popup__inner {
-  padding: 40px 0px 65px;
+  padding: 0 0px 65px;
   text-align: center;
   line-height: 1.2;
 }
 .popup__inner .msg {
   padding: 104px 0;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 400;
 }
 .popup__inner .msg strong {
@@ -541,28 +540,31 @@ body {
 }
 .popup__title,
 .popup .score__wrap {
-  font-size: 42px;
+  font-size: 100px;
   font-weight: 700;
-  padding-bottom: 14px;
+  padding-bottom: 67px;
 }
 .popup .record__box {
-  padding-top: 49px;
+  padding-top: 64px;
 }
 .popup .record__box > ul {
-  padding: 24px 0px 24px 136px;
+  padding: 56px 0px 72px 358px;
   background-color: rgba(254, 185, 90, 0.1019607843);
 }
 .popup .record__box li {
   display: flex;
   align-items: center;
   gap: 16px;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 600;
   text-align: left;
   line-height: 1;
 }
 .popup .record__box li + li {
   padding-top: 20px;
+}
+.popup .record__box li .result {
+  font-size: 32px;
 }
 .popup .record__box .player .fail {
   color: #E9501E;
@@ -577,15 +579,18 @@ body {
   height: 15px;
   border-radius: 100px;
   background-color: #121EFF;
-  transition: width 1s ease;
+  transition: width 1s ease-in-out !important;
 }
 .popup .record__box .graph__wrap {
   max-width: 300px;
   width: 80%;
 }
 .popup .record__box .qa {
-  font-size: 28px;
+  font-size: 42px;
   font-weight: 600;
+}
+.popup .record__box .qa .result {
+  font-size: 42px;
 }
 .popup .record__box .qa .record__title {
   display: block;
@@ -596,33 +601,29 @@ body {
   display: block;
   position: absolute;
   top: 50%;
-  left: -44px;
-  width: 32px;
-  height: 32px;
+  left: -74px;
+  width: 52px;
+  height: 52px;
   background: url(../images/quiz/img_badge.png) no-repeat;
   transform: translateY(-50%);
   background-size: cover;
   animation: badgeShow 1s linear;
 }
 .popup .record__box .qa .bar {
-  width: 7px;
   background-color: #F60909;
 }
 .popup .record__box .average .bar {
-  width: 188px;
   background-color: #7D7D7D;
 }
 .popup .record__title {
-  width: 174px;
+  width: 246px;
 }
 .popup .result {
   display: inline-flex;
   align-items: center;
+  width: 100%;
 }
 .popup.fail .score__wrap {
-  display: none;
-}
-.popup.fail .result {
   display: none;
 }
 .popup.fail .player .graph__wrap {
@@ -670,8 +671,19 @@ body {
   display: block;
 }
 .popup .btn__next {
-  font-size: 24px;
+  margin-bottom: 143px;
+  font-size: 32px;
   text-align: center;
+}
+.popup .img__success1,
+.popup .img__success2,
+.popup .img__success3 {
+  display: none;
+}
+.popup .success1,
+.popup .success2,
+.popup .success3 {
+  display: none;
 }
 
 .tip__wrap {
@@ -681,6 +693,10 @@ body {
 }
 .tip__wrap span {
   font-weight: 500;
+}
+
+.img__grade {
+  width: 358px;
 }
 
 .quiz__wrap .title .timer__wrap .wave_ani__wrap use {
@@ -965,25 +981,24 @@ body {
   .popup {
     display: none;
     position: absolute;
-    top: 35vw;
+    top: 25.4098360656vw;
     left: 50%;
-    width: 59.0163934426vw;
-    min-height: 65.5737704918vw;
+    width: 100vw;
+    min-height: 79.4262295082vw;
     transform: translateX(-50%);
     background: #FFF;
-    box-shadow: 0.3278688525vw 0.3278688525vw 0.9836065574vw 0vw rgba(0, 0, 0, 0.2);
   }
   .popup.active {
     display: block;
   }
   .popup__inner {
-    padding: 3.2786885246vw 0vw 5.3278688525vw;
+    padding: 0vw 0vw 5.3278688525vw;
     text-align: center;
     line-height: 1.2;
   }
   .popup__inner .msg {
     padding: 8.5245901639vw 0vw;
-    font-size: 1.9672131148vw;
+    font-size: 2.6229508197vw;
     font-weight: 400;
   }
   .popup__inner .msg strong {
@@ -991,28 +1006,31 @@ body {
   }
   .popup__title,
   .popup .score__wrap {
-    font-size: 3.4426229508vw;
+    font-size: 8.1967213115vw;
     font-weight: 700;
-    padding-bottom: 1.1475409836vw;
+    padding-bottom: 5.4918032787vw;
   }
   .popup .record__box {
-    padding-top: 4.0163934426vw;
+    padding-top: 5.2459016393vw;
   }
   .popup .record__box > ul {
-    padding: 1.9672131148vw 0vw 1.9672131148vw 11.1475409836vw;
+    padding: 4.5901639344vw 0vw 5.9016393443vw 29.3442622951vw;
     background-color: rgba(254, 185, 90, 0.1019607843);
   }
   .popup .record__box li {
     display: flex;
     align-items: center;
     gap: 1.3114754098vw;
-    font-size: 1.9672131148vw;
+    font-size: 2.6229508197vw;
     font-weight: 600;
     text-align: left;
     line-height: 1;
   }
   .popup .record__box li + li {
     padding-top: 1.6393442623vw;
+  }
+  .popup .record__box li .result {
+    font-size: 2.6229508197vw;
   }
   .popup .record__box .player .fail {
     color: #E9501E;
@@ -1027,40 +1045,37 @@ body {
     height: 1.2295081967vw;
     border-radius: 8.1967213115vw;
     background-color: #121EFF;
-    transition: width 1s ease;
   }
   .popup .record__box .graph__wrap {
     max-width: 24.5901639344vw;
     width: 80%;
   }
   .popup .record__box .qa {
-    font-size: 2.2950819672vw;
+    font-size: 3.4426229508vw;
+  }
+  .popup .record__box .qa .result {
+    font-size: 3.4426229508vw;
   }
   .popup .record__box .qa .record__title:before {
-    left: -3.606557377vw;
-    width: 2.6229508197vw;
-    height: 2.6229508197vw;
+    left: -6.0655737705vw;
+    width: 4.262295082vw;
+    height: 4.262295082vw;
   }
   .popup .record__box .qa .bar {
-    width: 0.5737704918vw;
     background-color: #F60909;
   }
   .popup .record__box .average .bar {
-    width: 15.4098360656vw;
-    max-width: 9.8360655738vw !important;
+    flex-shrink: 0;
     background-color: #7D7D7D;
   }
   .popup .record__title {
-    width: 14.262295082vw;
+    width: 20.1639344262vw;
   }
   .popup .result {
     display: inline-flex;
     align-items: center;
   }
   .popup.fail .score__wrap {
-    display: none;
-  }
-  .popup.fail .result {
     display: none;
   }
   .popup.fail .player .graph__wrap {
@@ -1105,13 +1120,25 @@ body {
   .popup.lose .msg.lose {
     display: block;
   }
+  .popup.lose .img__fail {
+    display: inline-block;
+  }
   .popup .btn__next {
-    font-size: 1.9672131148vw;
+    margin-bottom: 11.7213114754vw;
+    font-size: 2.6229508197vw;
     text-align: center;
+  }
+  .popup .img__success1,
+  .popup .img__success2,
+  .popup .img__success3 {
+    width: 13.1147540984vw;
   }
   .tip__wrap {
     padding-bottom: 2.4590163934vw;
     font-size: 2.131147541vw;
+  }
+  .img__grade {
+    width: 29.3442622951vw;
   }
   .quiz__wrap .title .timer__wrap .wave_ani__wrap use {
     width: 13.7704918033vw;
