@@ -267,6 +267,14 @@
                 $(".question").text(question.question);
                 $("#question-image").attr("src", question.image);
                 $(".count").text(index + 1);
+
+                // Tip 설정
+                if (question.tip) {
+                    $(".tip__wrap").show(); // Tip 랩을 보이도록 설정
+                    $(".tip").text(question.tip); // Tip 텍스트 설정
+                } else {
+                    $(".tip__wrap").hide(); // Tip이 없을 경우 숨김 처리
+                }
             }
         }
 
@@ -368,10 +376,17 @@
             var averageWidth = averageMaxWidth + "px"; 
 
             setTimeout(function() {
-                $(".player .graph .bar").css("width", playerWidth);
-                $(".qa .graph .bar").css("width", qaWidth);
-                $(".average .graph .bar").css("width", averageWidth);
-                $(".player .result .record").text(elapsedTime + "초");
+                // 애니메이션 설정
+                $(".player .graph .bar").animate({ width: playerWidth }, 1000);
+                $(".qa .graph .bar").animate({ width: qaWidth }, 1000);
+                $(".average .graph .bar").animate({ width: averageWidth }, 1000);
+
+                // PLAYER의 RESULT를 분/초 형식으로 표시
+                var minutes = Math.floor(elapsedTime / 60);
+                var seconds = elapsedTime % 60;
+                var timeDisplay = minutes > 0 ? minutes + "분 " + seconds + "초" : seconds + "초";
+
+                $(".player .result .record").text(timeDisplay);
             }, 100);
         }
 

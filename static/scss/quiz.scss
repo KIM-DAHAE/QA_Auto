@@ -680,17 +680,22 @@ body {
                 display: flex;
                 align-items: center;
                 gap: 16px;
+
+                >* {
+                    flex-shrink: 0;
+                }
                 
                 .bar {
                     width: 0;
+                    max-width: 229px;
                     height: 15px; 
                     border-radius: 100px;
                     background-color: #121EFF;
-                    transition: width 1s ease-in-out !important;
+                    transition: width 1s ease !important;
                 }
                 &__wrap {
                     max-width: 300px;
-                    width: 80%;
+                    // width: 80%;
                 }
             }
 
@@ -1298,6 +1303,7 @@ body {
                     
                     .bar {
                         width: 0;
+                        max-width: vw-tab(229);
                         height: vw-tab(15); 
                         border-radius: vw-tab(100);
                         background-color: #121EFF;
@@ -1330,6 +1336,7 @@ body {
                 
                 .average {
                     .bar {
+                        max-width: vw-tab(117);
                         flex-shrink: 0;
                         background-color: #7D7D7D;
                     }

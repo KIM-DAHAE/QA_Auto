@@ -574,16 +574,19 @@ body {
   align-items: center;
   gap: 16px;
 }
+.popup .record__box .graph > * {
+  flex-shrink: 0;
+}
 .popup .record__box .graph .bar {
   width: 0;
+  max-width: 229px;
   height: 15px;
   border-radius: 100px;
   background-color: #121EFF;
-  transition: width 1s ease-in-out !important;
+  transition: width 1s ease !important;
 }
 .popup .record__box .graph__wrap {
   max-width: 300px;
-  width: 80%;
 }
 .popup .record__box .qa {
   font-size: 42px;
@@ -1042,6 +1045,7 @@ body {
   }
   .popup .record__box .graph .bar {
     width: 0;
+    max-width: 18.7704918033vw;
     height: 1.2295081967vw;
     border-radius: 8.1967213115vw;
     background-color: #121EFF;
@@ -1065,6 +1069,7 @@ body {
     background-color: #F60909;
   }
   .popup .record__box .average .bar {
+    max-width: 9.5901639344vw;
     flex-shrink: 0;
     background-color: #7D7D7D;
   }
