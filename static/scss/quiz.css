@@ -422,7 +422,7 @@ body {
   width: 168px;
   height: 168px;
   background-color: #feb95a;
-  animation: bgMove 32s linear forwards;
+  animation: bgMove 98s linear forwards;
 }
 .quiz__wrap .title .timer__wrap .wave_ani__wrap .waves {
   transform: translateY(-300%);
