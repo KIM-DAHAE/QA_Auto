@@ -386,9 +386,11 @@
                 $(".average .graph .bar").animate({ width: averageBarWidth + "px" }, 1000);
 
                 // PLAYER의 RESULT를 정확한 분/초 형식으로 표시
-                var minutes = Math.floor(elapsedTime / 60);
-                var seconds = elapsedTime % 60;
-                
+                var totalMilliseconds = Date.now() - startTime; // 밀리초 단위로 경과 시간 측정
+                var minutes = Math.floor(totalMilliseconds / 60000); // 1분 = 60000 밀리초
+                var seconds = Math.floor((totalMilliseconds % 60000) / 1000); // 나머지를 초로 변환
+
+                // seconds가 한 자리일 경우 0을 붙여 두 자리로 표시
                 var timeDisplay = minutes > 0 ? minutes + "분 " + (seconds < 10 ? "0" : "") + seconds + "초" : seconds + "초";
                 $(".player .result .record").text(timeDisplay);
             }, 100);
