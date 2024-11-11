@@ -368,24 +368,22 @@
         }
 
         function animateBars() {
-            var maxBarWidth = 229; // player bar max width
-            var averageBarWidth = 117; // average bar width (for 48 seconds)
-            var qaWidth = "7px"; // qa bar is always 7px
+            var parentWidth = $(".graph__wrap").width(); // 부모 컨테이너의 실제 너비를 가져옵니다.
+            var averageBarRatio = 0.5; // 117px 비율에 해당
+            var maxBarRatio = 1; // 229px에 해당
+            var qaBarRatio = 0.03; // qa 바는 3% 고정
 
-            // PLAYER의 바 너비를 48초 기준으로 비례하여 계산
-            var playerWidth;
-            if (elapsedTime <= 48) {
-                playerWidth = (elapsedTime / 48) * averageBarWidth + "px"; // 48초보다 빠르면 averageBarWidth보다 작게
-            } else {
-                playerWidth = Math.min((elapsedTime / 48) * maxBarWidth, maxBarWidth) + "px"; // 48초보다 크면 maxBarWidth 제한
-            }
+            var playerRatio = Math.min(elapsedTime / 48, 1);
+            var playerWidth = playerRatio * maxBarRatio * 100 + "%";
+            var averageWidth = averageBarRatio * 100 + "%"; // 평균 바는 항상 50%
+            var qaWidth = qaBarRatio * 100 + "%"; // QA 바는 항상 3%
 
             setTimeout(function() {
                 $(".player .graph .bar").animate({ width: playerWidth }, 1000);
                 $(".qa .graph .bar").animate({ width: qaWidth }, 1000);
-                $(".average .graph .bar").animate({ width: averageBarWidth + "px" }, 1000);
+                $(".average .graph .bar").animate({ width: averageWidth }, 1000);
 
-                // PLAYER의 RESULT를 정확한 분/초 형식으로 표시
+                // PLAYER의 RESULT를 분/초 형식으로 표시
                 var totalMilliseconds = Date.now() - startTime; // 밀리초 단위로 경과 시간 측정
                 var minutes = Math.floor(totalMilliseconds / 60000); // 1분 = 60000 밀리초
                 var seconds = Math.floor((totalMilliseconds % 60000) / 1000); // 나머지를 초로 변환

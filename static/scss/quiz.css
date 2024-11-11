@@ -314,7 +314,7 @@ body {
 }
 
 .guide__wrap {
-  padding: 0 38px 0 50px;
+  padding: 0 21px;
 }
 .guide__wrap .btn__guide {
   text-align: center;
@@ -326,11 +326,12 @@ body {
 .guide__wrap > ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 32px 12px;
+  justify-content: space-between;
+  gap: 32px 0;
   width: 100%;
 }
 .guide__wrap > ul li {
-  flex: 0 0 calc(25% - 12px);
+  flex: 0 0 calc(33.3333% - 21px);
 }
 .guide__wrap > ul li > img {
   display: block;
@@ -339,12 +340,12 @@ body {
   border-radius: 4px;
 }
 .guide__wrap > ul p {
-  height: 38px;
   margin-bottom: 7px;
   max-width: 330px;
-  font-size: 16px;
+  font-size: 26px;
   font-weight: 700;
   line-height: 1.2;
+  letter-spacing: -0.2px;
 }
 
 .quiz {
@@ -517,7 +518,7 @@ body {
   position: absolute;
   top: 310px;
   left: 50%;
-  width: 610px;
+  width: 1220px;
   min-height: 969px;
   transform: translateX(-50%);
   background: #FFF;
@@ -573,6 +574,7 @@ body {
   display: flex;
   align-items: center;
   gap: 16px;
+  max-width: 229px;
 }
 .popup .record__box .graph > * {
   flex-shrink: 0;
@@ -711,7 +713,7 @@ body {
   top: 0;
 }
 
-@media screen and (max-width: 610px) {
+@media screen and (max-width: 1220px) {
   @keyframes arrow {
     0% {
       right: 0;
@@ -761,7 +763,7 @@ body {
     font-size: 3.9344262295vw;
   }
   .contents {
-    padding-bottom: 24.5901639344vw;
+    padding-bottom: 8.1967213115vw;
   }
   .contents .title p {
     padding: 1.1475409836vw 0vw;
@@ -815,14 +817,14 @@ body {
     text-align: center;
   }
   .guide__wrap {
-    padding: 0vw 7.4590163934vw;
+    padding: 0vw 1.5573770492vw;
   }
   .guide__wrap > ul {
-    gap: 11.7213114754vw 8.1147540984vw;
+    gap: 6.9672131148vw 0vw;
     width: 100%;
   }
   .guide__wrap > ul li {
-    flex: 0 0 calc((100% - 16.2295081967vw) / 3);
+    flex: 0 0 calc((100% - 1.8032786885vw) / 3);
   }
   .guide__wrap > ul li > img {
     display: block;
@@ -831,12 +833,12 @@ body {
     border-radius: 0.3278688525vw;
   }
   .guide__wrap > ul p {
-    height: 4.262295082vw;
     margin-bottom: 0.9836065574vw;
     max-width: 27.0491803279vw;
-    font-size: 1.4754098361vw;
+    font-size: 2.131147541vw;
     font-weight: 400;
     line-height: 2.1360655738vw;
+    letter-spacing: -0.0163934426vw;
   }
   .guide__wrap > ul p b {
     font-weight: 700;
@@ -986,7 +988,7 @@ body {
     position: absolute;
     top: 25.4098360656vw;
     left: 50%;
-    width: 50vw;
+    width: 100vw;
     min-height: 79.4262295082vw;
     transform: translateX(-50%);
     background: #FFF;
@@ -1042,6 +1044,7 @@ body {
     display: flex;
     align-items: center;
     gap: 1.3114754098vw;
+    max-width: 18.7704918033vw;
   }
   .popup .record__box .graph .bar {
     width: 0;

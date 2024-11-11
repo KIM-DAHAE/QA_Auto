@@ -360,6 +360,7 @@ body {
 
 .guide {
     &__wrap {
+        padding: 0 21px;
         .btn__guide {
             text-align: center;
         }
@@ -367,14 +368,14 @@ body {
             padding-bottom: 40px;
             text-align: center;
         }
-        padding: 0 38px 0 50px;
         &>ul {
             display: flex;
             flex-wrap: wrap;
-            gap: 32px 12px;
+            justify-content: space-between;
+            gap: 32px 0;
             width: 100%;
             li {
-                flex: 0 0 calc(25% - 12px);
+                flex: 0 0 calc(33.3333% - 21px);
                 >img {
                     display: block;
                     background-color: #f7f7f7;
@@ -383,12 +384,13 @@ body {
                 }
             }
             p {
-                height: 38px;
                 margin-bottom: 7px;
                 max-width: 330px;
-                font-size: 16px;
+                font-size: 26px;
                 font-weight: 700;
                 line-height: 1.2;
+                letter-spacing: -0.2px;
+                
             }
         }
 
@@ -609,7 +611,7 @@ body {
     position: absolute;
     top: 310px;
     left: 50%;
-    width: 610px;
+    width: 1220px;
     min-height: 969px;
     transform: translateX(-50%);
     background: #FFF;
@@ -680,6 +682,7 @@ body {
                 display: flex;
                 align-items: center;
                 gap: 16px;
+                max-width: 229px;
 
                 >* {
                     flex-shrink: 0;
@@ -877,7 +880,7 @@ body {
     top: 0;
 }
 
-@media screen and (max-width: 610px) {
+@media screen and (max-width: 1220px) {
     @keyframes arrow {
         0% {
             right: 0;
@@ -954,7 +957,7 @@ body {
     // }
     
     .contents {
-        padding-bottom: vw-tab(300);
+        padding-bottom: vw-tab(100);
         .title {
             p {
                 padding: vw-tab(14 0);
@@ -1028,12 +1031,12 @@ body {
     
     .guide {
         &__wrap {
-            padding: vw-tab(0 91);
+            padding: vw-tab(0 19);
             &>ul {
-                gap: vw-tab(143 99);
+                gap: vw-tab(85 0);
                 width: 100%;
                 li {
-                    flex: 0 0 calc((100% - vw-tab(198))/3);
+                    flex: 0 0 calc((100% - vw-tab(22))/3);
                     >img {
                         display: block;
                         width: 100%;
@@ -1042,12 +1045,12 @@ body {
                     }
                 }
                 p {
-                    height: vw-tab(52);
                     margin-bottom: vw-tab(12);
                     max-width: vw-tab(330);
-                    font-size: vw-tab(18);
+                    font-size: vw-tab(26);
                     font-weight: 400;
                     line-height: vw-tab(26.06);
+                    letter-spacing: vw-tab(-0.2);
 
                     b {
                         font-weight: 700;
@@ -1229,7 +1232,7 @@ body {
         position: absolute;
         top: vw-tab(310);
         left: 50%;
-        width: vw-tab(610);
+        width: vw-tab(1220);
         min-height: vw-tab(969);
         transform: translateX(-50%);
         background: #FFF;
@@ -1300,6 +1303,7 @@ body {
                     display: flex;
                     align-items: center;
                     gap: vw-tab(16);
+                    max-width: vw-tab(229);
                     
                     .bar {
                         width: 0;
