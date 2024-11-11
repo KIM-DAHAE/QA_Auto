@@ -609,7 +609,7 @@ body {
     position: absolute;
     top: 310px;
     left: 50%;
-    width: 1220px;
+    width: 610px;
     min-height: 969px;
     transform: translateX(-50%);
     background: #FFF;
@@ -877,7 +877,7 @@ body {
     top: 0;
 }
 
-@media screen and (max-width: 1220px) {
+@media screen and (max-width: 610px) {
     @keyframes arrow {
         0% {
             right: 0;
@@ -1229,7 +1229,7 @@ body {
         position: absolute;
         top: vw-tab(310);
         left: 50%;
-        width: vw-tab(1220);
+        width: vw-tab(610);
         min-height: vw-tab(969);
         transform: translateX(-50%);
         background: #FFF;
