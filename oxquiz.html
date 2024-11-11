@@ -369,16 +369,18 @@
 
         function animateBars() {
             var parentWidth = $(".graph__wrap").width(); // 부모 컨테이너의 실제 너비를 가져옵니다.
-            var averageBarRatio = 0.5; // 117px 비율에 해당
-            var maxBarRatio = 1; // 229px에 해당
+            var averageBarRatio = 0.5; // 48초 기준으로 50% 비율
+            var maxBarRatio = 1; // player 바의 최대 너비 비율
             var qaBarRatio = 0.03; // qa 바는 3% 고정
 
-            var playerRatio = Math.min(elapsedTime / 48, 1);
-            var playerWidth = playerRatio * maxBarRatio * 100 + "%";
-            var averageWidth = averageBarRatio * 100 + "%"; // 평균 바는 항상 50%
+            // PLAYER의 바 너비를 48초 기준으로 비례하여 계산 (퍼센트 비율 적용)
+            var playerRatio = Math.min(elapsedTime / 48, 1); // 48초 기준 비율 계산, 최대 1 (100%)
+            var playerWidth = playerRatio * averageBarRatio * 100 + "%"; // 48초 기준으로 player 비율 적용
+            var averageWidth = averageBarRatio * 100 + "%"; // average 바는 항상 50%
             var qaWidth = qaBarRatio * 100 + "%"; // QA 바는 항상 3%
 
             setTimeout(function() {
+                // 각 바에 애니메이션을 적용
                 $(".player .graph .bar").animate({ width: playerWidth }, 1000);
                 $(".qa .graph .bar").animate({ width: qaWidth }, 1000);
                 $(".average .graph .bar").animate({ width: averageWidth }, 1000);
