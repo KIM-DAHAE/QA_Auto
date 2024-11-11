@@ -389,7 +389,7 @@ body {
                 font-size: 26px;
                 font-weight: 700;
                 line-height: 1.2;
-                letter-spacing: -0.2px;
+                letter-spacing: -0.25px;
                 
             }
         }
@@ -957,7 +957,7 @@ body {
     // }
     
     .contents {
-        padding-bottom: vw-tab(100);
+        padding-bottom: vw-tab(50);
         .title {
             p {
                 padding: vw-tab(14 0);
@@ -1033,7 +1033,7 @@ body {
         &__wrap {
             padding: vw-tab(0 19);
             &>ul {
-                gap: vw-tab(85 0);
+                gap: vw-tab(55 0);
                 width: 100%;
                 li {
                     flex: 0 0 calc((100% - vw-tab(22))/3);
@@ -1050,7 +1050,7 @@ body {
                     font-size: vw-tab(26);
                     font-weight: 400;
                     line-height: vw-tab(26.06);
-                    letter-spacing: vw-tab(-0.2);
+                    letter-spacing: vw-tab(-1.4);
 
                     b {
                         font-weight: 700;

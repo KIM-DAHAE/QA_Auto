@@ -345,7 +345,7 @@ body {
   font-size: 26px;
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.25px;
 }
 
 .quiz {
@@ -763,7 +763,7 @@ body {
     font-size: 3.9344262295vw;
   }
   .contents {
-    padding-bottom: 8.1967213115vw;
+    padding-bottom: 4.0983606557vw;
   }
   .contents .title p {
     padding: 1.1475409836vw 0vw;
@@ -820,7 +820,7 @@ body {
     padding: 0vw 1.5573770492vw;
   }
   .guide__wrap > ul {
-    gap: 6.9672131148vw 0vw;
+    gap: 4.5081967213vw 0vw;
     width: 100%;
   }
   .guide__wrap > ul li {
@@ -838,7 +838,7 @@ body {
     font-size: 2.131147541vw;
     font-weight: 400;
     line-height: 2.1360655738vw;
-    letter-spacing: -0.0163934426vw;
+    letter-spacing: -0.1147540984vw;
   }
   .guide__wrap > ul p b {
     font-weight: 700;
