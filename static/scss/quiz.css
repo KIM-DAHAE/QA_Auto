@@ -344,7 +344,7 @@ body {
   max-width: 330px;
   font-size: 26px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.25;
   letter-spacing: -0.25px;
 }
 
@@ -837,7 +837,6 @@ body {
     max-width: 27.0491803279vw;
     font-size: 2.131147541vw;
     font-weight: 400;
-    line-height: 2.1360655738vw;
     letter-spacing: -0.1147540984vw;
   }
   .guide__wrap > ul p b {
